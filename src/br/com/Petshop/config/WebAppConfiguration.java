@@ -10,14 +10,13 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 public class WebAppConfiguration implements WebApplicationInitializer  {
 	@Override
-	public void onStartup(ServletContext container) throws ServletException {
-		 AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-	        ctx.register(WebConfig.class);
-	        ctx.setServletContext(container);
-	 
-	        ServletRegistration.Dynamic servlet = container.addServlet("Petshop", new DispatcherServlet(ctx));
-	 
-	        servlet.setLoadOnStartup(1);
-	        servlet.addMapping("/");
+	public void onStartup(ServletContext servletContext) throws ServletException {
+		AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
+		appContext.register(WebConfig.class);
+
+		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("Petshop",
+				new DispatcherServlet(appContext));
+		dispatcher.setLoadOnStartup(1);
+		dispatcher.addMapping("/");
 	}
 }
