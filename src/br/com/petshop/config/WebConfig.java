@@ -1,3 +1,4 @@
+
 package br.com.petshop.config;
 
 import org.springframework.context.annotation.Bean;
@@ -33,3 +34,4 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 //	
 
 }
+
