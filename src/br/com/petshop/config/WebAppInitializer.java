@@ -1,4 +1,4 @@
-package br.com.Petshop.config;
+package br.com.petshop.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

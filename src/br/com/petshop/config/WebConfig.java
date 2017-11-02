@@ -1,4 +1,4 @@
-package br.com.Petshop.config;
+package br.com.petshop.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
