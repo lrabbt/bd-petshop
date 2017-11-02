@@ -1,4 +1,4 @@
-package br.com.Petshop.controller;
+package br.com.petshop.controller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,7 @@ import java.util.Calendar;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.Petshop.config.ConnectionFactory;
+import br.com.petshop.config.ConnectionFactory;
 
 @Controller
 @RequestMapping("/")

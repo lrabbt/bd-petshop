@@ -1,4 +1,4 @@
-package br.com.Petshop.config;
+package br.com.petshop.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc 
-@ComponentScan(basePackages = {"br.com.Petshop.controller"})
+@ComponentScan(basePackages = {"br.com.petshop.controller"})
 public class WebConfig{
 	// The Environment class serves as the property holder
 	   // and stores all the properties loaded by the @PropertySource
