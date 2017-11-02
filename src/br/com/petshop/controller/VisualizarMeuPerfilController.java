@@ -1,4 +1,4 @@
-package br.com.Petshop.controller;
+package br.com.petshop.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.Petshop.model.Client;
+import br.com.petshop.model.Client;
 
 @Controller
 @RequestMapping("minhaconta")

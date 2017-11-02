@@ -1,14 +1,13 @@
-package br.com.Petshop.controller;
+package br.com.petshop.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.Petshop.dao.ClientDAO;
-import br.com.Petshop.model.Client;
+import br.com.petshop.dao.ClientDAO;
+import br.com.petshop.model.Client;
 
 @Controller
 @RequestMapping("/cadastrar")
@@ -36,7 +35,7 @@ public class CadastroController {
 		}
 		catch(Exception e){
 			modelAndView = new ModelAndView("registerClientForm");
-			modelAndView.getModelMap().addAttribute("message","O CPF ou o Email informados já possuem cadastro.Tente novamente!");
+			modelAndView.getModelMap().addAttribute("message","O CPF ou o Email informados jï¿½ possuem cadastro.Tente novamente!");
 		}
 		return modelAndView;
 	}

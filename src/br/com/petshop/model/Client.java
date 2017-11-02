@@ -1,6 +1,4 @@
-package br.com.Petshop.model;
-
-import java.util.Date;
+package br.com.petshop.model;
 
 public class Client {
 	private String nome;

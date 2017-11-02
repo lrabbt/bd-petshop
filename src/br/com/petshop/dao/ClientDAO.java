@@ -1,13 +1,11 @@
-package br.com.Petshop.dao;
+package br.com.petshop.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Calendar;
-import java.util.Date;
 
-import br.com.Petshop.model.Client;
+import br.com.petshop.model.Client;
 
 public class ClientDAO {
 	public Client autentica(String emailform,String senhaform) throws SQLException {

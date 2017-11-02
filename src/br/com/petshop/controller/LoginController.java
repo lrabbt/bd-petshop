@@ -1,4 +1,4 @@
-package br.com.Petshop.controller;
+package br.com.petshop.controller;
 
 import java.sql.SQLException;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.Petshop.model.Client;
-import br.com.Petshop.dao.ClientDAO;
+import br.com.petshop.model.Client;
+import br.com.petshop.dao.ClientDAO;
 
 @Controller
 @RequestMapping("login")
@@ -46,7 +46,7 @@ public class LoginController {
 			}
 		}
 		catch(SQLException e){
-			modelAndView.getModelMap().addAttribute("message", "Houve um erro na transação!");
+			modelAndView.getModelMap().addAttribute("message", "Houve um erro na transaï¿½ï¿½o!");
 		}
 		return modelAndView;
 	}

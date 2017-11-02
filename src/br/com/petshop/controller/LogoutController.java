@@ -1,4 +1,4 @@
-package br.com.Petshop.controller;
+package br.com.petshop.controller;
 
 import javax.servlet.http.HttpSession;
 
