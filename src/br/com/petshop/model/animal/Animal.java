@@ -13,6 +13,7 @@ public class Animal {
     private String raca;
     private Sexo sexo;
     private int idade;
+    private String maturidade;
 
     private Cliente dono;
 
@@ -65,6 +66,14 @@ public class Animal {
 
     public void setIdade(int idade) {
         this.idade = idade;
+    }
+
+    public String getMaturidade() {
+        return maturidade;
+    }
+
+    public void setMaturidade(String maturidade) {
+        this.maturidade = maturidade;
     }
 
     public Cliente getDono() {
