@@ -1,22 +1,20 @@
-package br.com.Petshop.config;
+package br.com.petshop.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
+import br.com.petshop.interceptor.LoggingInterceptor;
+
 @Configuration
 @EnableWebMvc 
-@ComponentScan(basePackages = {"br.com.Petshop.controller"})
-public class WebConfig{
-	// The Environment class serves as the property holder
-	   // and stores all the properties loaded by the @PropertySource
-	   @Autowired
-//	   private Environment env;
-	 
+@ComponentScan(basePackages = {"br.com.petshop.controller"})
+public class WebConfig extends WebMvcConfigurerAdapter{ 
 	   @Bean(name = "viewResolver")
 	   public InternalResourceViewResolver getViewResolver() {
 		   InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -25,6 +23,13 @@ public class WebConfig{
 		      resolver.setSuffix(".jsp");
 		      return resolver;
 	   }
+	   
+	   @Override
+	   public void addInterceptors(InterceptorRegistry registry) {
+		   System.out.println("passou");
+	       registry.addInterceptor(new LoggingInterceptor());
+//	       registry.addInterceptor((HandlerInterceptor) new TransactionInterceptor()).addPathPatterns("/person/save/*");
+	   } 
 //	
 
 }

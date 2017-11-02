@@ -35,7 +35,7 @@ public class CadastroController {
 		}
 		catch(Exception e){
 			modelAndView = new ModelAndView("registerClientForm");
-			modelAndView.getModelMap().addAttribute("message","O CPF ou o Email informados jï¿½ possuem cadastro.Tente novamente!");
+			modelAndView.getModelMap().addAttribute("message","O CPF ou o Email informados não possuem cadastro.Tente novamente!");
 		}
 		return modelAndView;
 	}

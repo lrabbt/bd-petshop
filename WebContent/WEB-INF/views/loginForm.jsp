@@ -12,7 +12,7 @@
 		<h1>Bem vindo ao Sistema de Agendamento - PetShopCC</h1>
 		<hr />
 		</br></br>
-		<form:form action="authClient" method="post" modelAttribute="client">
+		<form:form action="/Petshop/login/authClient" method="post" modelAttribute="client">
 			<div>${message}</div>
 			Email:<form:input path="email" />
 			Senha:<form:input path="senha" />
