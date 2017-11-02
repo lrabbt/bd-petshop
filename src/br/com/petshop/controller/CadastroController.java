@@ -1,35 +1,35 @@
 package br.com.petshop.controller;
 
+import br.com.petshop.model.pessoa.Cliente;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.petshop.dao.ClientDAO;
-import br.com.petshop.model.Client;
+import br.com.petshop.dao.ClienteDAO;
 
 @Controller
 @RequestMapping("/cadastrar")
 public class CadastroController {
 
-	@ModelAttribute("client")
-	public Client setUpRegisterForm() {
-		return new Client();
+	@ModelAttribute("cliente")
+	public Cliente setUpRegisterForm() {
+		return new Cliente();
 	}
 	@GetMapping("/")
 	public String registration() {
 		return "registerClientForm";
 	}
 	@RequestMapping("/cadastraCliente")
-	public ModelAndView verifyClient(@ModelAttribute("client") Client client) throws Exception
+	public ModelAndView verifyClient(@ModelAttribute("cliente") Cliente cliente) throws Exception
 	{
 		ModelAndView modelAndView;
 		
-		ClientDAO dao = new ClientDAO();
+		ClienteDAO dao = new ClienteDAO();
 		try {
-		System.out.println(client.getCpf());
-			dao.insereCliente(client);
+		System.out.println(cliente.getCpf());
+			dao.insereCliente(cliente);
 			modelAndView = new ModelAndView("loginForm");
 			modelAndView.getModelMap().addAttribute("message", "Cadastro efetuado com sucesso! Digite suas credenciais para logar!");
 		}

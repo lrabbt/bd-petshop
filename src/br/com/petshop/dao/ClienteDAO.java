@@ -1,14 +1,11 @@
 package br.com.petshop.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
-import br.com.petshop.model.Client;
+import br.com.petshop.model.pessoa.Cliente;
 
-public class ClientDAO {
-	public Client autentica(String emailform,String senhaform) throws SQLException {
+public class ClienteDAO {
+	public Cliente autentica(String emailform, String senhaform) throws SQLException {
 		Connection con = new ConnectionFactory().getConexaoMySQL();
 
 		// cria um preparedStatement
@@ -21,11 +18,10 @@ public class ClientDAO {
 		stmt.setString(2, senhaform);
 		// executa
 		ResultSet rs = stmt.executeQuery();
-		Client client = null;
+		Cliente cliente = null;
 
 		while(rs.next()){
-			client = new Client();
-			client.setClient(rs.getString("nome"),
+			cliente = new Cliente(rs.getString("nome"),
 					rs.getString("email"),
 					rs.getString("data_nascimento"),
 					rs.getString("cpf"),
@@ -37,10 +33,10 @@ public class ClientDAO {
 		}
 		stmt.close();  
 		con.close();
-		return client;
+		return cliente;
 	}
 
-	public void insereCliente(Client client) throws SQLException 
+	public void insereCliente(Cliente cliente) throws SQLException
 	{
 		Connection con = new ConnectionFactory().getConexaoMySQL();
 
@@ -52,15 +48,15 @@ public class ClientDAO {
 		PreparedStatement stmt = con.prepareStatement(sql);
 
 		// preenche os valores
-		stmt.setString(1, client.getCpf());
-		stmt.setString(2, client.getNome());
-		stmt.setDate(3, java.sql.Date.valueOf(client.getDataNasc()));
-		stmt.setString(4, client.getEmail());
-		stmt.setString(5, client.getSenha());
-		stmt.setString(6, client.getEndereco());
-		stmt.setString(7, client.getTelefone1());
-		stmt.setString(8, client.getTelefone2());
-		stmt.setString(9, client.getTelefone3());
+		stmt.setString(1, cliente.getCpf());
+		stmt.setString(2, cliente.getNome());
+		stmt.setTimestamp(3, new Timestamp(cliente.getDataNasc().getTime()));
+		stmt.setString(4, cliente.getEmail());
+		stmt.setString(5, cliente.getSenha());
+		stmt.setString(6, cliente.getEndereco());
+		stmt.setString(7, cliente.getTelefone1());
+		stmt.setString(8, cliente.getTelefone2());
+		stmt.setString(9, cliente.getTelefone3());
 
 		stmt.execute();
 		stmt.close();

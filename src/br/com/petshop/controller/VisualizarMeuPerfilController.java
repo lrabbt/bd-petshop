@@ -2,21 +2,20 @@ package br.com.petshop.controller;
 
 import javax.servlet.http.HttpSession;
 
+import br.com.petshop.model.pessoa.Cliente;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.petshop.model.Client;
-
 @Controller
 @RequestMapping("minhaconta")
 public class VisualizarMeuPerfilController {
-	@ModelAttribute("client")
-	public Client setUpMinhaContaForm(HttpSession session) {
-		Client client = (Client) session.getAttribute("clientLogado");
-		return client;
+	@ModelAttribute("cliente")
+	public Cliente setUpMinhaContaForm(HttpSession session) {
+		Cliente cliente = (Cliente) session.getAttribute("clientLogado");
+		return cliente;
 	}
 	@GetMapping("/")
 	public String login() {

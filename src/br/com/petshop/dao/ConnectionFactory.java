@@ -69,22 +69,23 @@ public class ConnectionFactory {
 			return status;
 		}
 
-		//M�todo que fecha sua conex�o//
-
-		public static boolean FecharConexao() {
-			try {
-				ConnectionFactory.getConexaoMySQL().close();
-				return true;
-			} 
-			catch (SQLException e) {
-				return false;
-			}
-		}
-
-		//M�todo que reinicia sua conex�o//
-
-		public static java.sql.Connection ReiniciarConexao() {
-			FecharConexao();
-			return ConnectionFactory.getConexaoMySQL();
-		}
+//		TODO: Reavaliar
+//		//M�todo que fecha sua conex�o//
+//
+//		public static boolean FecharConexao() {
+//			try {
+//				ConnectionFactory.getConexaoMySQL().close();
+//				return true;
+//			}
+//			catch (SQLException e) {
+//				return false;
+//			}
+//		}
+//
+//		//M�todo que reinicia sua conex�o//
+//
+//		public static java.sql.Connection ReiniciarConexao() {
+//			FecharConexao();
+//			return ConnectionFactory.getConexaoMySQL();
+//		}
 	}
