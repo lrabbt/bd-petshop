@@ -33,5 +33,6 @@ target/
 #eclipse
 .classpath
 .project
+.factorypath
 .settings/
 .recommenders/
