@@ -1,4 +1,4 @@
-package br.com.petshop.config;
+package br.com.Petshop.config;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -13,8 +13,7 @@ public class WebAppConfiguration implements WebApplicationInitializer  {
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
 		appContext.register(WebConfig.class);
-
-		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("petshop",
+		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("Petshop",
 				new DispatcherServlet(appContext));
 		dispatcher.setLoadOnStartup(1);
 		dispatcher.addMapping("/");

@@ -1,4 +1,4 @@
-package br.com.petshop.config;
+package br.com.Petshop.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,14 +6,14 @@ import java.sql.SQLException;
  
 public class ConnectionFactory {
 
-		public static String status = "Nï¿½o conectou...";
+		public static String status = "Não conectou...";
 
-		//Mï¿½todo Construtor da Classe//
+		//Método Construtor da Classe//
 
 		public ConnectionFactory() {
 
 		}
-		//Mï¿½todo de Conexï¿½o//
+		//Método de Conexão//
 
 		public static java.sql.Connection getConexaoMySQL() {
 
@@ -21,55 +21,55 @@ public class ConnectionFactory {
 
 			try {
 
-				//Carregando o JDBC Driver padrï¿½o
+				//Carregando o JDBC Driver padrão
 
 				String driverName = "com.mysql.jdbc.Driver";                        
 
 				Class.forName(driverName);
 				
-				//Configurando a nossa conexï¿½o com um banco de dados//
+				//Configurando a nossa conexão com um banco de dados//
 
 				String serverName = "localhost:3306";    //caminho do servidor do BD
 
-				String mydatabase ="petshop";        //nome do seu banco de dados
+				String mydatabase ="petshop_bdi";        //nome do seu banco de dados
 
 				String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
 
-				String username = "root";        //nome de um usuï¿½rio de seu BD      
+				String username = "root";        //nome de um usuário de seu BD      
 
 				String password = "root";      //sua senha de acesso
 
 				connection = DriverManager.getConnection(url, username, password);
 
 				
-				//Testa sua conexï¿½o//  
+				//Testa sua conexão//  
 
 				if (connection != null) {
 					status = ("STATUS--->Conectado com sucesso!");
 				} 
 				else {
-					status = ("STATUS--->Nï¿½o foi possivel realizar conexï¿½o");
+					status = ("STATUS--->Não foi possivel realizar conexão");
 				}
 				return connection;
 			} 
-			catch (ClassNotFoundException e) {  //Driver nï¿½o encontrado
+			catch (ClassNotFoundException e) {  //Driver não encontrado
 				System.out.println("O driver expecificado nao foi encontrado.");
 				return null;
 			} 
 			catch (SQLException e) {
-				//Nï¿½o conseguindo se conectar ao banco
+				//Não conseguindo se conectar ao banco
 				System.out.println("Nao foi possivel conectar ao Banco de Dados.");
 				return null;
 			}
 		}
 		
-		//Mï¿½todo que retorna o status da sua conexï¿½o//
+		//Método que retorna o status da sua conexão//
 		
 		public static String statusConection() {
 			return status;
 		}
 
-		//Mï¿½todo que fecha sua conexï¿½o//
+		//Método que fecha sua conexão//
 
 		public static boolean FecharConexao() {
 			try {
@@ -81,7 +81,7 @@ public class ConnectionFactory {
 			}
 		}
 
-		//Mï¿½todo que reinicia sua conexï¿½o//
+		//Método que reinicia sua conexão//
 
 		public static java.sql.Connection ReiniciarConexao() {
 			FecharConexao();
