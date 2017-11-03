@@ -4,9 +4,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public abstract class Pessoa {
     private String nome;
     private String email;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date dataNasc;
     private String cpf;
     private String senha;
@@ -14,12 +17,10 @@ public abstract class Pessoa {
     private String telefone1;
     private String telefone2;
     private String telefone3;
-
     
     public Pessoa() {
     	
     }
-    
     public Pessoa(String nome, String email, Date dataNasc, String cpf, String senha, String endereco, String telefone1,
                    String telefone2, String telefone3) {
         this.nome = nome;
