@@ -18,7 +18,10 @@ public class Animal {
     private Cliente dono;
 
     private List<ServicoAgendado> servicosAgendados = new ArrayList<>();
-
+    
+    public Animal() {
+    	
+    }
     public Animal(String nome, Especie especie, String raca, Sexo sexo, int idade, Cliente dono) {
         this.nome = nome;
         this.especie = especie;

@@ -30,19 +30,19 @@ public class VisualizarMeuPerfilController {
 	
 	
 	@RequestMapping("atualizar")
-	public ModelAndView loadMyProfile(@ModelAttribute("cliente") Cliente cliente,HttpSession session) throws SQLException 
+	public ModelAndView loadMyProfile(@ModelAttribute("cliente") Cliente cliente,HttpSession session) 
 	{
 		ModelAndView modelAndView;
 		ClienteDAO daoC = new ClienteDAO();
-//		try {
+		try {
 			daoC.atualiza(cliente);
 			modelAndView = new ModelAndView("minhaconta");
 			modelAndView.getModelMap().addAttribute("message", "Dados de Cadastro atualizados com sucesso!");
-//		}
-//		catch(Exception e){
-//			modelAndView = new ModelAndView("minhaconta");
-//			modelAndView.getModelMap().addAttribute("message","Houve um erro interno.Tente novamente mais tarde :(");
-//		}
+		}
+		catch(Exception e){
+			modelAndView = new ModelAndView("minhaconta");
+			modelAndView.getModelMap().addAttribute("message","Houve um erro interno.Tente novamente mais tarde :(");
+		}
 		return modelAndView;
 	}
 }
