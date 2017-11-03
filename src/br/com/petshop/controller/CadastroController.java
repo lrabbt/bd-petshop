@@ -29,17 +29,17 @@ public class CadastroController {
 		ModelAndView modelAndView;
 		System.out.println(cliente.getCpf());
 		
-		ClienteDAO dao = new ClienteDAO();
-//		try {
-			dao.insereCliente(cliente);
+		ClienteDAO daoC = new ClienteDAO();
+		try {
+			daoC.insere(cliente);
 			System.out.println(cliente.getCpf());
 			modelAndView = new ModelAndView("loginForm");
 			modelAndView.getModelMap().addAttribute("message", "Cadastro efetuado com sucesso! Digite suas credenciais para logar!");
-//		}
-//		catch(Exception e){
-//			modelAndView = new ModelAndView("registerClientForm");
-//			modelAndView.getModelMap().addAttribute("message","O CPF ou o Email informados ja possuem cadastro.Tente novamente!");
-//		}
+		}
+		catch(Exception e){
+			modelAndView = new ModelAndView("registerClientForm");
+			modelAndView.getModelMap().addAttribute("message","O CPF ou o Email informados ja possuem cadastro.Tente novamente!");
+		}
 		return modelAndView;
 	}
 	

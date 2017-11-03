@@ -46,7 +46,7 @@ public class LoginController {
 			}
 		}
 		catch(SQLException e){
-			modelAndView.getModelMap().addAttribute("message", "Houve um erro na transa��o!");
+			modelAndView.getModelMap().addAttribute("message", "Houve um erro na transacao!");
 		}
 		return modelAndView;
 	}
