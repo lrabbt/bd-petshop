@@ -13,7 +13,7 @@
 		<hr />
 		</br></br>
 		<form:form action="atualizarCliente" method="post"
-			modelAttribute="client">
+			modelAttribute="cliente">
 			<div>${message}</div>
 			Nome:<form:input path="nome"/></br></br>
 			Email:<form:input path="email" /></br></br>

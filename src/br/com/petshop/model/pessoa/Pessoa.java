@@ -15,6 +15,11 @@ public abstract class Pessoa {
     private String telefone2;
     private String telefone3;
 
+    
+    public Pessoa() {
+    	
+    }
+    
     public Pessoa(String nome, String email, Date dataNasc, String cpf, String senha, String endereco, String telefone1,
                    String telefone2, String telefone3) {
         this.nome = nome;

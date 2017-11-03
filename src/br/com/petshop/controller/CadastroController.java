@@ -13,31 +13,29 @@ import br.com.petshop.model.pessoa.Cliente;
 @RequestMapping("/cadastrar")
 public class CadastroController {
 
-	@ModelAttribute("client")
+	@ModelAttribute("cliente")
 	public Cliente setUpRegisterForm() {
-//		TODO: implementar
-//		return new Cliente();
-		return null;
+		return new Cliente();
 	}
 	@GetMapping("/")
 	public String registration() {
 		return "registerClientForm";
 	}
-	@RequestMapping("/cadastraCliente")
-	public ModelAndView verifyClient(@ModelAttribute("client") Cliente client) throws Exception
+	@RequestMapping("/cadastraCliente") 
+	public ModelAndView verifyClient(@ModelAttribute("cliente") Cliente cliente) throws Exception
 	{
 		ModelAndView modelAndView;
 		
 		ClienteDAO dao = new ClienteDAO();
 		try {
-		System.out.println(client.getCpf());
-			dao.insereCliente(client);
+			System.out.println(cliente.getCpf());
+			dao.insereCliente(cliente);
 			modelAndView = new ModelAndView("loginForm");
 			modelAndView.getModelMap().addAttribute("message", "Cadastro efetuado com sucesso! Digite suas credenciais para logar!");
 		}
 		catch(Exception e){
 			modelAndView = new ModelAndView("registerClientForm");
-			modelAndView.getModelMap().addAttribute("message","O CPF ou o Email informados não possuem cadastro.Tente novamente!");
+			modelAndView.getModelMap().addAttribute("message","O CPF ou o Email informados ja possuem cadastro.Tente novamente!");
 		}
 		return modelAndView;
 	}

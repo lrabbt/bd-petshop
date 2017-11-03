@@ -8,7 +8,7 @@
 </head>
 <body>
 	<center>
-		<h1>Bem Vindo,${client.nome}!</h1>
+		<h1>Bem Vindo,${cliente.nome}!</h1>
 		<hr />
 			
 		<button  onclick="window.location.href='/Petshop/minhaconta/'">Minha Conta</button>

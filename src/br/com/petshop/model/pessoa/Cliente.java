@@ -10,6 +10,10 @@ public class Cliente extends Pessoa {
 
 	private List<Animal> animais = new ArrayList<>();
 
+	public Cliente() {
+		
+	}
+	
 	public Cliente(String nome, String email, Date dataNasc, String cpf, String senha, String endereco, String telefone1, String telefone2, String telefone3) {
 		super(nome, email, dataNasc, cpf, senha, endereco, telefone1, telefone2, telefone3);
 	}
