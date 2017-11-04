@@ -37,7 +37,7 @@ public class ConnectionFactory {
 
 				String username = "root";        //nome de um usu�rio de seu BD      
 
-				String password = "root";      //sua senha de acesso
+				String password = "theminishcap";      //sua senha de acesso
 
 				connection = DriverManager.getConnection(url, username, password);
 

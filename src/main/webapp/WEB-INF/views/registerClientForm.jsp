@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Petshop - Minha Conta</title>
+<title>Cadastro</title>
 </head>
 <body>
-<center>
-		<h1>Minha Conta</h1>
+	<center>
+		<h1>Cadastro</h1>
 		<hr />
 		</br></br>
-		<form:form action="atualizarCliente" method="post"
+		<form:form action="cadastraCliente" method="post"
 			modelAttribute="cliente">
 			<div>${message}</div>
 			Nome:<form:input path="nome"/></br></br>
@@ -24,10 +24,9 @@
 			Telefone 2:<form:input path="telefone2" /></br></br>
 			Telefone 3:<form:input path="telefone3" /></br></br>
 			Senha:<form:input path="senha" /></br></br>
-			<td><form:button>Atualizar</form:button></td>
+			<td><form:button>Cadastrar</form:button></td>
 		</form:form>
 		<pre></pre>
-		<button  onclick="window.location.href='/Petshop/'">Voltar</button></br>
+		<button  onclick="window.location.href='/login/'">Voltar</button></br>
 	</center>
-</body>
 </html>

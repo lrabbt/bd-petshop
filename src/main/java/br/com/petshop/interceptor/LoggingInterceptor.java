@@ -18,7 +18,7 @@ public class LoggingInterceptor implements HandlerInterceptor  {
 	          return true;
 	        }
 	        
-	        response.sendRedirect("/Petshop/login/");
+	        response.sendRedirect("/login/");
 	        return false;
 	    
 	}

@@ -12,14 +12,14 @@
 		<h1>Bem vindo ao Sistema de Agendamento - PetShopCC</h1>
 		<hr />
 		</br></br>
-		<form:form action="/Petshop/login/authClient" method="post" modelAttribute="cliente">
+		<form:form action="/login/authClient" method="post" modelAttribute="cliente">
 			<div>${message}</div>
 			Email:<form:input path="email" />
 			Senha:<form:input path="senha" />
 			<form:button>Logar</form:button>
 		</form:form>
 		<pre></pre>
-		<button  onclick="window.location.href='/Petshop/cadastrar/'">Cadastrar</button>
+		<button  onclick="window.location.href='/cadastrar/'">Cadastrar</button>
 		<pre></pre>
 	</center>
 </html>

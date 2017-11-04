@@ -11,10 +11,10 @@
 		<h1>Bem Vindo,${cliente.nome}!</h1>
 		<hr />
 			
-		<button  onclick="window.location.href='/Petshop/minhaconta/'">Minha Conta</button>
-		<button  onclick="window.location.href='/Petshop/meuspets/'">Meus Pets</button>
-		<button  onclick="window.location.href='/Petshop/meusservicos/'">Meus Serviços marcados</button>
-		<button  onclick="window.location.href='/Petshop/logout/'">Sair</button>
+		<button  onclick="window.location.href='/minhaconta/'">Minha Conta</button>
+		<button  onclick="window.location.href='/meuspets/'">Meus Pets</button>
+		<button  onclick="window.location.href='/meusservicos/'">Meus Serviços marcados</button>
+		<button  onclick="window.location.href='/logout/'">Sair</button>
 	</center>
 </body>
 </html>
