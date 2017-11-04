@@ -1,5 +1,7 @@
 package br.com.petshop.controller;
 
+import java.sql.SQLException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,7 +12,7 @@ import br.com.petshop.dao.ClienteDAO;
 import br.com.petshop.model.pessoa.Cliente;
 
 @Controller
-@RequestMapping("/cadastrar")
+@RequestMapping("cadastrar")
 public class CadastroController {
 
 	@ModelAttribute("cliente")
@@ -22,14 +24,15 @@ public class CadastroController {
 		return "registerClientForm";
 	}
 	@RequestMapping("/cadastraCliente") 
-	public ModelAndView verifyClient(@ModelAttribute("cliente") Cliente cliente) throws Exception
+	public ModelAndView verifyClient(@ModelAttribute("cliente") Cliente cliente) throws SQLException
 	{
 		ModelAndView modelAndView;
+		System.out.println(cliente.getCpf());
 		
-		ClienteDAO dao = new ClienteDAO();
+		ClienteDAO daoC = new ClienteDAO();
 		try {
+			daoC.insere(cliente);
 			System.out.println(cliente.getCpf());
-			dao.insereCliente(cliente);
 			modelAndView = new ModelAndView("loginForm");
 			modelAndView.getModelMap().addAttribute("message", "Cadastro efetuado com sucesso! Digite suas credenciais para logar!");
 		}

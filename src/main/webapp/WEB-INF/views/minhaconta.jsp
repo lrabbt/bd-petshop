@@ -12,7 +12,7 @@
 		<h1>Minha Conta</h1>
 		<hr />
 		</br></br>
-		<form:form action="atualizarCliente" method="post"
+		<form:form action="atualizar" method="post"
 			modelAttribute="cliente">
 			<div>${message}</div>
 			Nome:<form:input path="nome"/></br></br>
