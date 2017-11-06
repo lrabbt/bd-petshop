@@ -14,25 +14,25 @@ import br.com.petshop.model.pessoa.Cliente;
 
 public class PetDAO {
 	public List<Animal> consultaPetsPorDono(Cliente cliente) throws SQLException {
-		Connection con = new ConnectionFactory().getConexaoMySQL();
+		Connection con = ConnectionFactory.getConexaoMySQL();
 
 		// cria um preparedStatement
 		String sql = "SELECT * FROM animal WHERE cpf = ?";
 
 		PreparedStatement stmt = con.prepareStatement(sql);
-		
+
 		stmt.setString(1, cliente.getCpf());
 		ResultSet rs = stmt.executeQuery();
-		ArrayList<Animal> pets = null;
-		
+		List<Animal> pets = new ArrayList<>();
+
 		while(rs.next()) {
 			Especie especie = new Especie(rs.getString("especie"));
 			Sexo sexo = null;
 			if (rs.getString("sexo").equals("M")) {
-				 sexo = sexo.M;
+				 sexo = Sexo.M;
 			}
 			else {
-				sexo = sexo.F;
+				sexo = Sexo.F;
 			}
 			Animal pet = new Animal(rs.getString("nome"),
 					especie,
@@ -41,6 +41,7 @@ public class PetDAO {
 					rs.getInt("idade"),
 					cliente
 					);
+			pets.add(pet);
 		}
 		return pets;
 	}

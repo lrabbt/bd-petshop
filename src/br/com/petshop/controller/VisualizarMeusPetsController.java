@@ -23,7 +23,7 @@ public class VisualizarMeusPetsController {
 	@RequestMapping("/")
 	public ModelAndView loadMyPets(HttpSession session) 
 	{
-		List<Animal> pets =  new ArrayList<Animal>();
+		List<Animal> pets;
 		ModelAndView modelAndView = new ModelAndView("meuspets");;
 		Cliente cliente = (Cliente) session.getAttribute("clienteLogado");
 		PetDAO daoP = new PetDAO();
