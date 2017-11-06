@@ -23,7 +23,7 @@ public class ClienteDAO {
 		while(rs.next()){
 			cliente = new Cliente(rs.getString("nome"),
 					rs.getString("email"),
-					rs.getString("data_nascimento"),
+					rs.getDate("data_nascimento"),
 					rs.getString("cpf"),
 					rs.getString("senha"),
 					rs.getString("endereco"),
@@ -31,7 +31,7 @@ public class ClienteDAO {
 					rs.getString("telefone_2"),
 					rs.getString("telefone_3"));
 		}
-		stmt.close();  
+		stmt.close();
 		con.close();
 		return cliente;
 	}

@@ -32,7 +32,6 @@ public class CadastroController {
 		ClienteDAO daoC = new ClienteDAO();
 		try {
 			daoC.insere(cliente);
-			System.out.println(cliente.getCpf());
 			modelAndView = new ModelAndView("loginForm");
 			modelAndView.getModelMap().addAttribute("message", "Cadastro efetuado com sucesso! Digite suas credenciais para logar!");
 		}
