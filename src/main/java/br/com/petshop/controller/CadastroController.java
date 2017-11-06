@@ -27,7 +27,6 @@ public class CadastroController {
 	public ModelAndView verifyClient(@ModelAttribute("cliente") Cliente cliente) throws SQLException
 	{
 		ModelAndView modelAndView;
-		System.out.println(cliente.getCpf());
 		
 		ClienteDAO daoC = new ClienteDAO();
 		try {

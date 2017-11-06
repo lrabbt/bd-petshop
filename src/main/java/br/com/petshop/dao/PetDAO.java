@@ -23,8 +23,7 @@ public class PetDAO {
 		stmt.setString(1, cliente.getCpf());
 
 		ResultSet rs = stmt.executeQuery();
-		stmt.close();
-		
+
 		List<Animal> pets = new ArrayList<>();
 
 		while(rs.next()) {
@@ -48,6 +47,9 @@ public class PetDAO {
 
 			pets.add(pet);
 		}
+
+		rs.close();
+		stmt.close();
 		return pets;
 	}
 }

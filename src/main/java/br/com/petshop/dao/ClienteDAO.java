@@ -31,6 +31,8 @@ public class ClienteDAO {
 					rs.getString("telefone_2"),
 					rs.getString("telefone_3"));
 		}
+
+		rs.close();
 		stmt.close();
 		return cliente;
 	}
@@ -58,9 +60,10 @@ public class ClienteDAO {
 		stmt.setString(9, cliente.getTelefone3());
 
 		stmt.execute();
-		stmt.close();
 
 		System.out.println("Gravado!");
+
+		stmt.close();
 	}
 	
 	public void atualiza(Cliente cliente) throws SQLException
@@ -90,8 +93,9 @@ public class ClienteDAO {
 		stmt.setString(7, cliente.getCpf());
 
 		stmt.execute();
-		stmt.close();
 
 		System.out.println("Atualizado!");
+
+		stmt.close();
 	}
 }
