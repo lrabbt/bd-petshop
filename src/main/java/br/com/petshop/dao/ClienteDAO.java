@@ -6,7 +6,7 @@ import br.com.petshop.model.pessoa.Cliente;
 
 public class ClienteDAO {
 	public Cliente autentica(String emailform, String senhaform) throws SQLException {
-		Connection con = new ConnectionFactory().getConexaoMySQL();
+		Connection con = ConnectionFactory.getConexaoMySQL();
 
 		// cria um preparedStatement
 		String sql = "SELECT * FROM pessoa WHERE email = ? and senha = ?";
@@ -38,7 +38,7 @@ public class ClienteDAO {
 
 	public void insere(Cliente cliente) throws SQLException
 	{
-		Connection con = new ConnectionFactory().getConexaoMySQL();
+		Connection con = ConnectionFactory.getConexaoMySQL();
 
 		// cria um preparedStatement
 		String sql = "insert into pessoa" +
@@ -50,7 +50,7 @@ public class ClienteDAO {
 		// preenche os valores
 		stmt.setString(1, cliente.getCpf());
 		stmt.setString(2, cliente.getNome());
-		stmt.setTimestamp(3, new Timestamp(cliente.getDataNasc().getTime()));
+		stmt.setDate(3, new Date(cliente.getDataNasc().getTime()));
 		stmt.setString(4, cliente.getEmail());
 		stmt.setString(5, cliente.getSenha());
 		stmt.setString(6, cliente.getEndereco());
@@ -67,11 +67,12 @@ public class ClienteDAO {
 	}
 	public void atualiza(Cliente cliente) throws SQLException
 	{
-		Connection con = new ConnectionFactory().getConexaoMySQL();
+		Connection con = ConnectionFactory.getConexaoMySQL();
 
 		// cria um preparedStatement
-		String sql = "UPDATE pessoa SET" +
-				" senha = ?,"
+		String sql = "UPDATE pessoa SET "
+				+ "data_nascimento = ?,"
+				+ "senha = ?,"
 				+ "endereco = ?,"
 				+ "telefone_1 = ?,"
 				+ "telefone_2 = ?,"
@@ -82,13 +83,13 @@ public class ClienteDAO {
 
 		// preenche os valores
 		//esses serao obrigatorios
-		stmt.setString(1, cliente.getSenha());
-		stmt.setString(2, cliente.getEndereco());
-		stmt.setString(3, cliente.getTelefone1());
-		//
-		stmt.setString(4, cliente.getTelefone2().equals("")?"NULL":cliente.getTelefone2());
-		stmt.setString(5, cliente.getTelefone3().equals("")?"NULL":cliente.getTelefone3());
-		stmt.setString(6, cliente.getCpf());
+		stmt.setDate(1, new Date(cliente.getDataNasc().getTime()));
+		stmt.setString(2, cliente.getSenha());
+		stmt.setString(3, cliente.getEndereco());
+		stmt.setString(4, cliente.getTelefone1());
+		stmt.setString(5, cliente.getTelefone2().equals("")?"NULL":cliente.getTelefone2());
+		stmt.setString(6, cliente.getTelefone3().equals("")?"NULL":cliente.getTelefone3());
+		stmt.setString(7, cliente.getCpf());
 
 		stmt.execute();
 		stmt.close();
