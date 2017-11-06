@@ -5,7 +5,7 @@ import java.sql.*;
 import br.com.petshop.model.pessoa.Cliente;
 
 public class ClienteDAO {
-	public Cliente autentica(String emailform, String senhaform) throws SQLException {
+	public static Cliente autentica(String emailform, String senhaform) throws SQLException {
 		Connection con = ConnectionFactory.getConexaoMySQL();
 
 		// cria um preparedStatement
@@ -32,7 +32,6 @@ public class ClienteDAO {
 					rs.getString("telefone_3"));
 		}
 		stmt.close();
-		con.close();
 		return cliente;
 	}
 
@@ -62,9 +61,8 @@ public class ClienteDAO {
 		stmt.close();
 
 		System.out.println("Gravado!");
-
-		con.close();
 	}
+	
 	public void atualiza(Cliente cliente) throws SQLException
 	{
 		Connection con = ConnectionFactory.getConexaoMySQL();
@@ -95,7 +93,5 @@ public class ClienteDAO {
 		stmt.close();
 
 		System.out.println("Atualizado!");
-
-		con.close();
 	}
 }

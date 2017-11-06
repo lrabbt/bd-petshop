@@ -22,12 +22,14 @@ public class Animal {
     public Animal() {
     	
     }
-    public Animal(String nome, Especie especie, String raca, Sexo sexo, int idade, Cliente dono) {
+
+    public Animal(String nome, Especie especie, String raca, Sexo sexo, int idade, String maturidade, Cliente dono) {
         this.nome = nome;
         this.especie = especie;
         this.raca = raca;
         this.sexo = sexo;
         this.idade = idade;
+        this.maturidade = maturidade;
         this.dono = dono;
     }
 

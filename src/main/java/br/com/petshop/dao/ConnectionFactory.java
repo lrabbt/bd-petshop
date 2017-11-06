@@ -6,86 +6,83 @@ import java.sql.SQLException;
  
 public class ConnectionFactory {
 
-		public static String status = "N�o conectou...";
+	private static Connection conexaoMySql = null;
 
-		//M�todo Construtor da Classe//
+	public static String status = "N�o conectou...";
 
-		public ConnectionFactory() {
+	//Metodo retorna conexao aberta, caso ela esteja fechada, retorna uma nova conexao
+	public static Connection getConexaoMySQL() {
+		if(conexaoMySql == null){
 
-		}
-		//M�todo de Conex�o//
-
-		public static java.sql.Connection getConexaoMySQL() {
-
-			Connection connection = null;          //atributo do tipo Connection
+			Connection connection;          //atributo do tipo Connection
 
 			try {
 
 				//Carregando o JDBC Driver padr�o
 
-				String driverName = "com.mysql.jdbc.Driver";                        
+				String driverName = "com.mysql.jdbc.Driver";
 
 				Class.forName(driverName);
-				
+
 				//Configurando a nossa conex�o com um banco de dados//
 
 				String serverName = "localhost:3306";    //caminho do servidor do BD
 
-				String mydatabase ="petshop_bdi";        //nome do seu banco de dados
+				String mydatabase = "petshop_bdi";        //nome do seu banco de dados
 
 				String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
 
-				String username = "root";        //nome de um usu�rio de seu BD      
+				String username = "root";        //nome de um usu�rio de seu BD
 
 				String password = "root";      //sua senha de acesso
 
 				connection = DriverManager.getConnection(url, username, password);
 
-				
-				//Testa sua conex�o//  
+
+				//Testa sua conex�o//
 
 				if (connection != null) {
 					status = ("STATUS--->Conectado com sucesso!");
-				} 
-				else {
+				} else {
 					status = ("STATUS--->N�o foi possivel realizar conex�o");
 				}
-				return connection;
-			} 
-			catch (ClassNotFoundException e) {  //Driver n�o encontrado
+
+				conexaoMySql = connection;
+			} catch (ClassNotFoundException e) {  //Driver n�o encontrado
 				System.out.println("O driver expecificado nao foi encontrado.");
 				return null;
-			} 
-			catch (SQLException e) {
+			} catch (SQLException e) {
 				//N�o conseguindo se conectar ao banco
 				System.out.println("Nao foi possivel conectar ao Banco de Dados.");
 				return null;
 			}
 		}
-		
-		//M�todo que retorna o status da sua conex�o//
-		
-		public static String statusConection() {
-			return status;
-		}
 
-//		TODO: Reavaliar
-//		//M�todo que fecha sua conex�o//
-//
-//		public static boolean FecharConexao() {
-//			try {
-//				ConnectionFactory.getConexaoMySQL().close();
-//				return true;
-//			}
-//			catch (SQLException e) {
-//				return false;
-//			}
-//		}
-//
-//		//M�todo que reinicia sua conex�o//
-//
-//		public static java.sql.Connection ReiniciarConexao() {
-//			FecharConexao();
-//			return ConnectionFactory.getConexaoMySQL();
-//		}
+		return conexaoMySql;
 	}
+
+	//M�todo que retorna o status da sua conex�o//
+
+	public static String statusConection() {
+		return status;
+	}
+
+	//Metodo que fecha sua conexao
+	public static boolean fecharConexao() {
+		try {
+			conexaoMySql.close();
+			conexaoMySql = null;
+			return true;
+		}
+		catch (SQLException e) {
+			return false;
+		}
+	}
+
+	//M�todo que reinicia sua conex�o//
+
+	public static Connection reiniciarConexao() {
+		fecharConexao();
+		return ConnectionFactory.getConexaoMySQL();
+	}
+}

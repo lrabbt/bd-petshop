@@ -24,13 +24,18 @@ public class VisualizarMeusPetsController {
 	public ModelAndView loadMyPets(HttpSession session) 
 	{
 		List<Animal> pets;
-		ModelAndView modelAndView = new ModelAndView("meuspets");;
-		Cliente cliente = (Cliente) session.getAttribute("clienteLogado");
-		PetDAO daoP = new PetDAO();
+		ModelAndView modelAndView = new ModelAndView("meuspets");
+		Cliente cliente = (Cliente) session.getAttribute("clientLogado");
+
 		try {
-			pets = daoP.consultaPetsPorDono(cliente);	
-			modelAndView.addObject("pets",pets);
-			modelAndView.getModelMap().addAttribute("message", "Dados de Cadastro atualizados com sucesso!");
+			pets = PetDAO.consultaPetsPorDono(cliente);
+
+			if(pets == null){
+				modelAndView.getModelMap().addAttribute("message", "Voce nao possui pets cadastrados :/");
+			} else {
+				modelAndView.addObject("pets", pets);
+				modelAndView.getModelMap().addAttribute("message", "Dados de Cadastro atualizados com sucesso!");
+			}
 		}
 		catch(Exception e){
 			modelAndView.getModelMap().addAttribute("message","Houve um erro interno.Tente novamente mais tarde :(");
