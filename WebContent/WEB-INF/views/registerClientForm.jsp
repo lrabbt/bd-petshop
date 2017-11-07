@@ -32,7 +32,7 @@
             <form:input id="cpf" placeholder="000.000.000-00"  type="text" name="cpf" data-error="" path="cpf" maxlength="14" /></br></br>
              <div class=""></div>
 			
-			<label for="end">Endereço *</label>
+			<label for="end">Endere?o *</label>
             <form:input id="end" type="text" placeholder="Rua do usuario, 000. apt:000"  name="end" data-error="" path="endereco" maxlength="50" /></br></br>
              <div class=""></div>
 			
@@ -123,11 +123,11 @@
         //For custom messages
         messages: {
             cemail:{
-                required: "Entre com um email válido",
+                required: "Entre com um email valido",
                 minlength: 5
             },
             password:{
-            	required: "Você precisa de uma senha",
+            	required: "Voc? precisa de uma senha",
             	minlength: 5
             }, 
             uname: {
@@ -142,11 +142,11 @@
 				equalTo: "#password"
 			},
 			cpf: {
-                required: "Você precisa cadastrar seu CPF",
+                required: "Voc? precisa cadastrar seu CPF",
                 
             },
             end: {
-                required: "Preencha um endereço",
+                required: "Preencha um endere?o",
                
             },
             data: {
@@ -154,7 +154,7 @@
                
             },
             tel1: {
-                required: "Você precisa de pelo menos um telefone",
+                required: "Voc? precisa de pelo menos um telefone",
                
             },
             tel2: {

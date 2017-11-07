@@ -37,7 +37,7 @@ public class ClienteDAO {
 		return cliente;
 	}
 
-	public void insere(Cliente cliente) throws SQLException
+	public static void insere(Cliente cliente) throws SQLException
 	{
 		Connection con = ConnectionFactory.getConexaoMySQL();
 
@@ -77,8 +77,8 @@ public class ClienteDAO {
 				+ "endereco = ?,"
 				+ "telefone_1 = ?,"
 				+ "telefone_2 = ?,"
-				+ "telefone_3 =?"
-				+"WHERE cpf = ?";
+				+ "telefone_3 =? "
+				+ "WHERE cpf = ?";
 
 		PreparedStatement stmt = con.prepareStatement(sql);
 

@@ -67,11 +67,11 @@ pageEncoding="ISO-8859-1"%>
         //For custom messages
         messages: {
             cemail:{
-                required: "Entre com um email válido",
+                required: "Entre com um email v?lido",
                 minlength: 5
             },
             password:{
-            	required: "Você precisa de uma senha",
+            	required: "Voc? precisa de uma senha",
             	minlength: 5
             } 
         },
