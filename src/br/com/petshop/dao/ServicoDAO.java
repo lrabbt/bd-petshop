@@ -32,4 +32,24 @@ public class ServicoDAO {
 		return listaServico;
 	}
 	
+	public static int consultaServicoPorNome(String nome) throws SQLException{
+		Connection con = ConnectionFactory.getConexaoMySQL();
+
+		// cria um preparedStatement
+		String sql = "SELECT id FROM tipo_servico where nome = ?";
+
+		PreparedStatement stmt = con.prepareStatement(sql);
+		stmt.setString(1,nome);
+		
+		ResultSet rs = stmt.executeQuery();
+		
+		int id_serv = 0;
+			while(rs.next()){
+				id_serv =rs.getInt("id");
+			}
+			rs.close();
+			stmt.close();
+			return id_serv;
+	}
+	
 }
