@@ -12,7 +12,7 @@ import br.com.petshop.dao.ClienteDAO;
 import br.com.petshop.model.pessoa.Cliente;
 
 @Controller
-@RequestMapping("cadastrar")
+@RequestMapping("cadastrarCliente")
 public class CadastroController {
 
 	@ModelAttribute("cliente")
@@ -28,9 +28,8 @@ public class CadastroController {
 	{
 		ModelAndView modelAndView;
 		
-		ClienteDAO daoC = new ClienteDAO();
 		try {
-			daoC.insere(cliente);
+			ClienteDAO.insere(cliente);
 			modelAndView = new ModelAndView("loginForm");
 			modelAndView.getModelMap().addAttribute("message", "Cadastro efetuado com sucesso! Digite suas credenciais para logar!");
 		}
