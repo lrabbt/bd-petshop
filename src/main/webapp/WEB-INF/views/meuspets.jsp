@@ -47,6 +47,9 @@ pageEncoding="ISO-8859-1"%>
 		<div>
 			<button onclick="window.location.href='/cadastrarPet/'">Cadastrar Animal</button>
 		</div>
+		<div>
+			<button onclick="window.location.href='/'">Voltar</button>
+		</div>
 	</center>
 </body>
 </html>
