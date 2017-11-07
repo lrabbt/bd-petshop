@@ -1,9 +1,10 @@
-<<<<<<< HEAD
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Cadastro</title>
 	
@@ -20,40 +21,42 @@
 
 			<div>${message}</div>
 
-			<label for="uname">Nome*</label>
+			<label for="uname">Nome*
 			<form:input id="uname" placeholder="Nome" name="uname" type="text" data-error=".errorTxt1" path="nome" maxlength="50" /></br></br>
-			<div class="errorTxt1"></div>
+			<span class="error" aria-live="polite"></span>
+			</label>
 			
-			<label for="cemail">E-Mail *</label>
+			<label for="cemail">E-Mail *
             <form:input id="cemail" placeholder="usuario@email.com" type="text" name="cemail" data-error=".errorTxt2" path="email" maxlength="50"/></br></br>
-             <div class="errorTxt2"></div>
+            
+			</label>
 			
+			<label for="cpf">Cpf *
+            <form:input id="cpf" placeholder="000.000.000-00"  type="text" name="cpf" data-error="" path="cpf" minlength="14" maxlength="14" /></br></br>
+             <span class="error" aria-live="polite"></span>
+             </label>
 			
-			<label for="cpf">Cpf *</label>
-            <form:input id="cpf" placeholder="000.000.000-00"  type="text" name="cpf" data-error="" path="cpf" maxlength="14" /></br></br>
-             <div class=""></div>
-			
-			<label for="end">Endere?o *</label>
+			<label for="end">Endereço *</label>
             <form:input id="end" type="text" placeholder="Rua do usuario, 000. apt:000"  name="end" data-error="" path="endereco" maxlength="50" /></br></br>
              <div class=""></div>
 			
 			<label for="data">Data de Nascimento *</label>
-            <form:input id="data" type="text" placeholder="dd-mm-aaaa" name="data" data-error="" path="dataNasc" maxlength="10" /></br></br>
+            <form:input id="data" type="text" placeholder="dd-mm-aaaa" name="data" data-error="" path="dataNasc" minlength="10" maxlength="10" /></br></br>
              <div class=""></div>
 			
 			
 			<i class="material-icons prefix"></i>
           <label for="tel1">Telefone 1:</label>
           
-          <form:input id="tel1"  placeholder="(00) 00000-0000" type="text" class="validate" path="telefone1" maxlength="14" /></br></br>
+          <form:input id="tel1"  placeholder="(00) 00000-0000" type="text" class="validate" path="telefone1" minlength="11" maxlength="14" /></br></br>
 			
 			<i class="material-icons prefix"></i>
           <label for="tel2">Telefone 2:</label>
-			 <form:input id="tel2" placeholder="(00) 00000-0000" type="text" class="validate" path="telefone2" maxlength="14"/></br></br>
+			 <form:input id="tel2" placeholder="(00) 00000-0000" type="text" class="validate" path="telefone2" minlength="11" maxlength="14"/></br></br>
 			
 			<i class="material-icons prefix"></i>
           <label for="tel3">Telefone 3:</label>
-			 <form:input id="tel3"  placeholder="(00) 00000-0000" type="text" class="validate" path="telefone3" maxlength="14"/></br></br>
+			 <form:input id="tel3"  placeholder="(00) 00000-0000" type="text" class="validate" path="telefone3" minlength="11" maxlength="14"/></br></br>
 			
 			
 			<label for="password">Senha *</label>
@@ -181,211 +184,34 @@
      });
  </script>
 <script type="text/javascript">
+var form  = document.getElementsByTagName('form')[0];
+var email = document.getElementById('cmail');
+var error = document.querySelector('.error');
 
-$(document).ready(function(){
+email.addEventListener("input", function (event) {
+  
+  if (email.validity.valid) {
+    
+    error.innerHTML = ""; // Reset the content of the message
+    error.className = "error"; // Reset the visual state of the message
+  }
+}, false);
+form.addEventListener("submit", function (event) {
+  // Each time the user tries to send the data, we check
+  // if the email field is valid.
+  if (!email.validity.valid) {
+    
+    // If the field is not valid, we display a custom
+    // error message.
+    error.innerHTML = "E-mail inválido!";
+    error.className = "error active";
+    // And we prevent the form from being sent by canceling the event
+    event.preventDefault();
+  }
+}, false);
 	
-	$("#contato").click(function(){
-		
-		if ($("#unome").val()==''){
-			$("#mensagem").html("Campo obrigatório");
-			$("#unome").focus(); // foco no campo
-			}else{
-				$("#meuForm").submit();
-		}
-		if ($("#cmail").val()==''){
-			$("#mensagem").html("Campo obrigatório");
-			$("#cmail").focus(); // foco no campo
-			}else{
-				$("#meuForm").submit();
-		}
-	
-	});
-	
-});
+
 </script>
 </body>
 
-=======
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Cadastro</title>
-</head>
-<body>
-	<center>
-		<h1>Cadastro</h1>
-		<hr />
-	</br></br>
-		<form:form action="/Petshop/cadastrar/cadastraCliente" class="formValidate" id="formValidate" method="post"  novalidate="novalidate" modelAttribute="cliente">
-<br/><br/>
-
-			<div>${message}</div>
-
-			<label for="uname">Nome*</label>
-			<form:input id="uname" name="uname" type="text" data-error=".errorTxt1" path="nome"/></br></br>
-			<div class="errorTxt1"></div>
-			
-			<label for="cemail">E-Mail *</label>
-            <form:input id="cemail" type="email" name="cemail" data-error=".errorTxt2" path="email"/></br></br>
-             <div class="errorTxt2"></div>
-			
-			
-			<label for="cpf">Cpf *</label>
-            <form:input id="cpf" type="cpf" name="cpf" data-error="" path="cpf" /></br></br>
-             <div class=""></div>
-			
-			<label for="end">Endere?o *</label>
-            <form:input id="end" type="end" name="end" data-error="" path="endereco" /></br></br>
-             <div class=""></div>
-			
-			<label for="data">Data de Nascimento *</label>
-            <form:input id="data" type="data" name="data" data-error="" path="dataNasc" /></br></br>
-             <div class=""></div>
-			
-			
-			<i class="material-icons prefix"></i>
-          <label for="tel1">Telefone 1:</label>
-          
-          <form:input id="tel1" type="tel" class="validate" path="telefone1" /></br></br>
-			
-			<i class="material-icons prefix"></i>
-          <label for="tel2">Telefone 2:</label>
-			 <form:input id="tel2" type="tel" class="validate" path="telefone2" /></br></br>
-			
-			<i class="material-icons prefix"></i>
-          <label for="tel3">Telefone 3:</label>
-			 <form:input id="tel3" type="tel" class="validate" path="telefone3" /></br></br>
-			
-			
-			<label for="password">Senha *</label>
-            <form:input id="password" type="password" name="password" data-error=".errorTxt3" path="senha" /></br></br>
-            <div class="errorTxt3"></div>
-			
-			<label for="cpassword">Confirm Password *</label>
-           <form:input id="cpassword" type="password" name="cpassword" data-error=".errorTxt4" path="" /></br></br>
-            <div class="errorTxt4"></div>
-			
-			
-			<td><form:button>Cadastrar</form:button></td>
-
-		</form:form>
-		
-		
-		<pre></pre>
-		<button  onclick="window.location.href='/Petshop/login/'">Voltar</button><br/>
-	</center>
-
-	
-	<script type="text/javascript"> 	
-     $("#formValidate").validate({
-        rules: {
-            uname: {
-                required: true,
-                minlength: 5
-            },
-            cemail: {
-                required: true,
-                email:true
-            },
-            password: {
-				required: true,
-				minlength: 5
-			},
-			cpassword: {
-				required: true,
-				minlength: 5,
-				equalTo: "#password"
-			},
-			cpf: {
-                required: true,
-                maxlength: 11
-            },
-            end: {
-                required: true,
-                minlength: 15
-            },
-            data: {
-                required: true,
-                maxlength: 10
-            },
-            tel1: {
-                required: true,
-                maxlength: 11
-            },
-            tel2: {
-                required: false,
-                maxlength: 11
-            },
-            tel3: {
-                required: false,
-                maxlength: 11
-            },
-            
-        },
-        //For custom messages
-        messages: {
-            cemail:{
-                required: "Entre com um email v?lido",
-                minlength: 5
-            },
-            password:{
-            	required: "Voc? precisa de uma senha",
-            	minlength: 5
-            } 
-            uname: {
-                required: true,
-                minlength: 5
-            },
-           
-	
-			cpassword: {
-				required: "Este campo precisa ser igual sua senha digitada",
-				minlength: 5,
-				equalTo: "#password"
-			},
-			cpf: {
-                required: "Voc? precisa cadastrar seu CPF",
-                maxlength: 11
-            },
-            end: {
-                required: "Preencha um endere?o",
-                minlength: 15
-            },
-            data: {
-                required: "Informe sua data de nascimento",
-                maxlength: 10
-            },
-            tel1: {
-                required: "Voc? precisa de pelo menos um telefone",
-                maxlength: 11
-            },
-            tel2: {
-                required: false,
-                maxlength: 11
-            },
-            tel3: {
-                required: false,
-                maxlength: 11
-            },
-            
-        },
-       
-        errorElement : 'div',
-        errorPlacement: function(error, element) {
-          var placement = $(element).data('error');
-          if (placement) {
-            $(placement).append(error)
-          } else {
-            error.insertAfter(element);
-          }
-        }
-     });
- </script>
-
-</body>
-
->>>>>>> refs/remotes/origin/desenvolvimento
 </html>
