@@ -1,8 +1,8 @@
 package br.com.petshop.model.enums;
 
 public enum Sexo {
-    M("Macho"),
-    F("Femea")
+    M("m"),
+    F("f")
     ;
 
     private String sexo;

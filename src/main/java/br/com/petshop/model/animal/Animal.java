@@ -14,6 +14,7 @@ public class Animal {
     private Sexo sexo;
     private int idade;
     private String maturidade;
+    private String Saude;
 
     private Cliente dono;
 
@@ -23,13 +24,14 @@ public class Animal {
     	
     }
 
-    public Animal(String nome, Especie especie, String raca, Sexo sexo, int idade, String maturidade, Cliente dono) {
+    public Animal(String nome, Especie especie, String raca, Sexo sexo, int idade, String maturidade, String saude, Cliente dono) {
         this.nome = nome;
         this.especie = especie;
         this.raca = raca;
         this.sexo = sexo;
         this.idade = idade;
         this.maturidade = maturidade;
+        Saude = saude;
         this.dono = dono;
     }
 
@@ -87,6 +89,14 @@ public class Animal {
 
     public void setDono(Cliente dono) {
         this.dono = dono;
+    }
+
+    public String getSaude() {
+        return Saude;
+    }
+
+    public void setSaude(String saude) {
+        Saude = saude;
     }
 
     public List<ServicoAgendado> getServicosAgendados() {

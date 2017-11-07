@@ -37,7 +37,7 @@ public class ClienteDAO {
 		return cliente;
 	}
 
-	public void insere(Cliente cliente) throws SQLException
+	public static void insere(Cliente cliente) throws SQLException
 	{
 		Connection con = ConnectionFactory.getConexaoMySQL();
 

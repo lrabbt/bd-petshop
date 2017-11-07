@@ -34,6 +34,7 @@ pageEncoding="ISO-8859-1"%>
 						<td><c:out value="${pet.sexo}" /></td>
 						<td><c:out value="${pet.idade}" /></td>
 						<td><c:out value="${pet.maturidade}" /></td>
+						<td><c:out value="${pet.saude}" /></td>
 					</tr>
 				</c:forEach>
 			</tr>
