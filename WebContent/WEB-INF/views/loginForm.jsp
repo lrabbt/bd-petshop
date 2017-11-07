@@ -5,12 +5,10 @@ pageEncoding="ISO-8859-1"%>
 <html>
 <head>
 
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Login</title>
-
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>login</title>
 
 </head>
 <body>
@@ -28,7 +26,7 @@ pageEncoding="ISO-8859-1"%>
 			<div>${message}</div>
 			
 			<label for="cemail">E-mail</label>
-			<form:input type="email" placeholder="usuario@email.com" id="cemail" name="cemail" data-error=".errorTxt2" path="email" />
+			<form:input type="email" id="cemail" name="cemail" data-error=".errorTxt2" path="email" />
 			<label for="password">Senha *</label>
 			<form:input id="password" type="password" name="password" data-error=".errorTxt3" path="senha" />
 			
@@ -38,11 +36,16 @@ pageEncoding="ISO-8859-1"%>
 			<form:button>Logar</form:button>
 		</form:form>
 		<pre></pre>
-		<button  onclick="window.location.href='/Petshop/cadastrar/'">Cadastrar</button>
+		<button  onclick="window.location.href='/Petshop/cadastrar/">Cadastrar</button>
 		<pre></pre>
 	</center>
 
 	</div>
+	
+	
+	
+	
+	
 	
 <script type="text/javascript"> 	
      $("#formValidate").validate({
@@ -82,5 +85,9 @@ pageEncoding="ISO-8859-1"%>
      });
  </script>
 
+
+
+
 </body>
+
 </html>
