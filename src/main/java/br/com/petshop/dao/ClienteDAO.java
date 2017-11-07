@@ -77,8 +77,8 @@ public class ClienteDAO {
 				+ "endereco = ?,"
 				+ "telefone_1 = ?,"
 				+ "telefone_2 = ?,"
-				+ "telefone_3 =?"
-				+"WHERE cpf = ?";
+				+ "telefone_3 =? "
+				+ "WHERE cpf = ?";
 
 		PreparedStatement stmt = con.prepareStatement(sql);
 

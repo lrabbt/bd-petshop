@@ -30,7 +30,7 @@ pageEncoding="ISO-8859-1"%>
 				</tr>
 				<tr>
 					<c:forEach var="pet" items="${pets}">
-						<tr>
+						<tr onclick="window.location.href='/meuspets/${pet.nome}'" onmouseover="" style="cursor: pointer;">
 							<td><c:out value="${pet.especie.nome}" /></td>
 							<td><c:out value="${pet.nome}" /></td>
 							<td><c:out value="${pet.raca}" /></td>
