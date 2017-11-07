@@ -98,4 +98,17 @@ public class ClienteDAO {
 
 		stmt.close();
 	}
+
+	public static void deleta(Cliente cliente) throws SQLException {
+		Connection connection = ConnectionFactory.getConexaoMySQL();
+
+		String sql = "DELETE FROM pessoa WHERE cpf = ?";
+
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+		preparedStatement.setString(1, cliente.getCpf());
+
+		preparedStatement.executeUpdate();
+
+		preparedStatement.close();
+	}
 }

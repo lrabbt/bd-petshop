@@ -12,8 +12,8 @@ pageEncoding="ISO-8859-1"%>
 		<h1>Bem vindo ao Sistema de Agendamento - PetShopCC</h1>
 		<hr />
 		<br/><br/>
+		<div>${message}</div>
 		<form:form action="/login/authClient" method="post" modelAttribute="cliente">
-			<div>${message}</div>
 			Email:<form:input path="email" />
 			Senha:<form:input path="senha" />
 			<form:button>Logar</form:button>
