@@ -4,14 +4,14 @@ pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<<<<<<< HEAD
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Login</title>
-=======
+
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>login</title>
->>>>>>> branch 'desenvolvimento' of https://github.com/lrabbt/bd-petshop.git
+
 </head>
 <body>
 	<div class="login">
@@ -19,12 +19,12 @@ pageEncoding="ISO-8859-1"%>
 	<center>
 		<h1>Bem vindo ao Sistema de Agendamento - PetShopCC</h1>
 		<hr />
-<<<<<<< HEAD
+
 		</br></br>
 
 		<br/><br/>
 		<form:form action="/Petshop/login/authClient" method="post" modelAttribute="cliente">
->>>>>>> branch 'desenvolvimento' of https://github.com/lrabbt/bd-petshop.git
+
 			<div>${message}</div>
 			
 			<label for="cemail">E-mail</label>
@@ -41,7 +41,7 @@ pageEncoding="ISO-8859-1"%>
 		<button  onclick="window.location.href='/Petshop/cadastrar/'">Cadastrar</button>
 		<pre></pre>
 	</center>
-<<<<<<< HEAD
+
 	</div>
 	
 	
@@ -86,7 +86,6 @@ pageEncoding="ISO-8859-1"%>
         }
      });
  </script>
-=======
->>>>>>> branch 'desenvolvimento' of https://github.com/lrabbt/bd-petshop.git
+
 </body>
 </html>

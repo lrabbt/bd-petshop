@@ -10,15 +10,12 @@
 	<center>
 		<h1>Cadastro</h1>
 		<hr />
-<<<<<<< HEAD
-		</br></br>
+	</br></br>
 		<form:form action="/Petshop/cadastrar/cadastraCliente" class="formValidate" id="formValidate" method="post"  novalidate="novalidate" modelAttribute="cliente">
 <br/><br/>
 
->>>>>>> branch 'desenvolvimento' of https://github.com/lrabbt/bd-petshop.git
 			<div>${message}</div>
-<<<<<<< HEAD
-			
+
 			<label for="uname">Nome*</label>
 			<form:input id="uname" name="uname" type="text" data-error=".errorTxt1" path="nome"/></br></br>
 			<div class="errorTxt1"></div>
@@ -65,14 +62,14 @@
 			
 			
 			<td><form:button>Cadastrar</form:button></td>
->>>>>>> branch 'desenvolvimento' of https://github.com/lrabbt/bd-petshop.git
+
 		</form:form>
 		
 		
 		<pre></pre>
 		<button  onclick="window.location.href='/Petshop/login/'">Voltar</button><br/>
 	</center>
-<<<<<<< HEAD
+
 	
 	<script type="text/javascript"> 	
      $("#formValidate").validate({
@@ -96,7 +93,7 @@
 			},
 			cpf: {
                 required: true,
-                minlength: 11
+                maxlength: 11
             },
             end: {
                 required: true,
@@ -104,30 +101,70 @@
             },
             data: {
                 required: true,
-                minlength: 10
+                maxlength: 10
             },
             tel1: {
                 required: true,
-                minlength: 11
+                maxlength: 11
             },
             tel2: {
                 required: false,
-                minlength: 11
+                maxlength: 11
             },
             tel3: {
                 required: false,
-                minlength: 11
+                maxlength: 11
             },
             
         },
         //For custom messages
         messages: {
-            uname:{
-                required: "Enter a username",
-                minlength: "Enter at least 5 characters"
+            cemail:{
+                required: "Entre com um email válido",
+                minlength: 5
             },
-            curl: "Enter your website",
+            password:{
+            	required: "Você precisa de uma senha",
+            	minlength: 5
+            } 
+            uname: {
+                required: true,
+                minlength: 5
+            },
+           
+	
+			cpassword: {
+				required: "Este campo precisa ser igual sua senha digitada",
+				minlength: 5,
+				equalTo: "#password"
+			},
+			cpf: {
+                required: "Você precisa cadastrar seu CPF",
+                maxlength: 11
+            },
+            end: {
+                required: "Preencha um endereço",
+                minlength: 15
+            },
+            data: {
+                required: "Informe sua data de nascimento",
+                maxlength: 10
+            },
+            tel1: {
+                required: "Você precisa de pelo menos um telefone",
+                maxlength: 11
+            },
+            tel2: {
+                required: false,
+                maxlength: 11
+            },
+            tel3: {
+                required: false,
+                maxlength: 11
+            },
+            
         },
+       
         errorElement : 'div',
         errorPlacement: function(error, element) {
           var placement = $(element).data('error');
@@ -139,7 +176,7 @@
         }
      });
  </script>
-=======
+
 </body>
->>>>>>> branch 'desenvolvimento' of https://github.com/lrabbt/bd-petshop.git
+
 </html>
