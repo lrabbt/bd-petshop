@@ -94,7 +94,9 @@ public class AgendaController {
 //		catch{
 //			
 //		}
-		return null;
+			ModelAndView modelAndView= new ModelAndView("home");
+			modelAndView.addObject("message", "Servico Marcado com sucesso!");
+		return modelAndView ;
 		
 	}
 	

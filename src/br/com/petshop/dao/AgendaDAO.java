@@ -4,10 +4,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import br.com.petshop.model.animal.Animal;
 import br.com.petshop.model.pessoa.Cliente;
+import br.com.petshop.model.pessoa.Funcionario;
+import br.com.petshop.model.pessoa.horario.Horario;
+import br.com.petshop.model.pessoa.horario.HorarioDeTrabalho;
 import br.com.petshop.model.servico.ServicoAgendado;
+import br.com.petshop.model.servico.TipoDeServico;
 
 public class AgendaDAO {
 
@@ -50,9 +57,14 @@ public class AgendaDAO {
 			stmt.setString(1, cpf);
 			// executa
 			ResultSet rs = stmt.executeQuery();
-			ServicoAgendado servAg = null;
+			List<ServicoAgendado> servs = new ArrayList<ServicoAgendado>();
 
 			while(rs.next()){
+				Animal animalAtendido = PetDAO.consultaPetPorNome(rs.getString("animal_nome"));
+				TipoDeServico tipoDeServico = ServicoDAO.consultaServicoPorID(rs.getInt("tipo_servico_id"));
+				Funcionario func = FuncionarioDAO.consultaFuncionariosPorID(rs.getInt("funcionario_horario_pessoa_reg_funcionario"));
+				Horario horario = new Horario(rs.getDate("funcionario_horario_horario_data"));
+				ServicoAgendado serv = new ServicoAgendado(Animal animalAtendido, TipoDeServico tipoDeServico, HorarioDeTrabalho horarioDeTrabalho);
 //				servAg = new ServicoAgendado(rs.getString("nome"),
 //						rs.getString("email"),
 //						rs.getDate("data_nascimento"),

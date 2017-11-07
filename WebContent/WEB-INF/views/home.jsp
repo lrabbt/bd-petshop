@@ -20,7 +20,8 @@
 		<button onclick="window.location.href='/Petshop/logout/'">Sair</button>
 
 		</br> </br> </br> </br> </br>
-		<form:form action="/Petshop/meusservicos/" modelAttribute="marcarServ" method="post">
+		<h2>${message}</h2>
+		<form:form action="/Petshop/agendaservico/" modelAttribute="marcarServ" method="post">
 			Pet: 
 			<form:select path="animalAtendido.nome">
 				<form:option value="-" label="--Select pet" />
