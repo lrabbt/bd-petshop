@@ -1,25 +1,21 @@
 package br.com.petshop.controller;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
-import br.com.petshop.dao.EspecieDAO;
-import br.com.petshop.model.animal.Especie;
-import br.com.petshop.model.enums.Sexo;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.com.petshop.dao.ClienteDAO;
+import br.com.petshop.dao.EspecieDAO;
 import br.com.petshop.dao.PetDAO;
 import br.com.petshop.model.animal.Animal;
+import br.com.petshop.model.animal.Especie;
+import br.com.petshop.model.enums.Sexo;
 import br.com.petshop.model.pessoa.Cliente;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("meuspets")
@@ -86,8 +82,7 @@ public class VisualizarMeusPetsController {
 	@PostMapping("/{nomePet}")
 	public ModelAndView atualizarPet(@PathVariable(value = "nomePet") String nomeAntigoPet,
 								  @ModelAttribute("cliente") Cliente cliente,
-								  @ModelAttribute("animal") @Valid Animal animal,
-								  BindingResult animalBindingResult,
+								  @ModelAttribute("animal") Animal animal,
 								  RedirectAttributes redirectAttributes,
 								  HttpSession httpSession) {
 		ModelAndView modelAndView;

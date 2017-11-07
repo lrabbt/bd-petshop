@@ -7,7 +7,10 @@ public class HorarioDeTrabalho {
     private Funcionario funcionario;
 
     private boolean disponivel;
-
+    
+    public HorarioDeTrabalho() {
+    	
+    }
     public HorarioDeTrabalho(Horario horarioCompleto, Funcionario funcionario, boolean disponivel) {
         this.horarioCompleto = horarioCompleto;
         this.funcionario = funcionario;

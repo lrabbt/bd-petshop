@@ -7,7 +7,7 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public abstract class Pessoa {
-    private String nome;
+    protected String nome;
     private String email;
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date dataNasc;

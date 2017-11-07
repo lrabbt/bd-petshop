@@ -4,7 +4,10 @@ import java.util.Date;
 
 public class Horario {
     private Date dataCompleta;
-
+    
+    public Horario() {
+    	
+    }
     public Horario(Date dataCompleta) {
         this.dataCompleta = dataCompleta;
     }
