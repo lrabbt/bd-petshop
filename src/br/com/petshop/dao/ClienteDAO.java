@@ -88,8 +88,8 @@ public class ClienteDAO {
 		stmt.setString(2, cliente.getSenha());
 		stmt.setString(3, cliente.getEndereco());
 		stmt.setString(4, cliente.getTelefone1());
-		stmt.setString(5, cliente.getTelefone2().equals("")?"NULL":cliente.getTelefone2());
-		stmt.setString(6, cliente.getTelefone3().equals("")?"NULL":cliente.getTelefone3());
+		stmt.setString(5, cliente.getTelefone2().length()==0?"NULL":cliente.getTelefone2());
+		stmt.setString(6, cliente.getTelefone3().length()==0?"NULL":cliente.getTelefone3());
 		stmt.setString(7, cliente.getCpf());
 
 		stmt.execute();

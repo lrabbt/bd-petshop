@@ -12,7 +12,7 @@
 		<hr />
 		<br/><br/>
 		<div>${message}</div>
-		<form:form action="/cadastrarPet/cadastra" method="post" modelAttribute="animal">
+		<form:form action="/Petshop/cadastrarPet/cadastra" method="post" modelAttribute="animal">
 			<p>Nome:<form:input path="nome"/></p>
 			<p>Especie:
 				<form:select path="especie">
@@ -20,11 +20,8 @@
 					<form:options items="${especies}" itemValue="nome" itemLabel="nome"/>
 				</form:select>
 			</p>
-<<<<<<< HEAD
+
 			<p>Raça:<form:input path="raca" /></p>
-=======
-			<p>RaÃ§a:<form:input path="raca" /></p>
->>>>>>> refs/remotes/origin/desenvolvimento
 			<p>Sexo:
 				<form:select path="sexo">
 				    <form:option value="NONE" label="--- Escolha ---" />
@@ -37,7 +34,7 @@
 		<p><form:button>Cadastrar</form:button></p>
 		</form:form>
 		<pre></pre>
-		<button onclick="window.location.href='/meuspets/'">Voltar</button><br/>
+		<button onclick="window.location.href='/Petshop/meuspets/'">Voltar</button><br/>
 	</center>
 </body>
 </html>
