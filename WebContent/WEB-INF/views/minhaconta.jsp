@@ -13,15 +13,52 @@
 		<br/><br/>
 		<form:form action="atualizar" method="post" modelAttribute="cliente">
 			<div>${message}</div>
-			Nome:<form:input path="nome"/><br/><br/>
-			Email:<form:input path="email" /><br/><br/>
-			Cpf:<form:input path="cpf" /><br/><br/>
-			Endereço:<form:input path="endereco" /><br/><br/>
-			Data de Nascimento:<form:input path="dataNasc" /><br/><br/>
-			Telefone 1:<form:input path="telefone1" /><br/><br/>
-			Telefone 2:<form:input path="telefone2" /><br/><br/>
-			Telefone 3:<form:input path="telefone3" /><br/><br/>
-			Senha:<form:input path="senha" /><br/><br/>
+			<label for="uname">Nome*
+			<form:input id="uname" placeholder="Nome" name="uname" type="text" data-error=".errorTxt1" path="nome" maxlength="50" /></br></br>
+			<span class="error" aria-live="polite"></span>
+			</label>
+			
+			<label for="cemail">E-Mail *
+            <form:input id="cemail" placeholder="usuario@email.com" type="text" name="cemail" data-error=".errorTxt2" path="email" maxlength="50"/></br></br>
+            
+			</label>
+			
+			<label for="cpf">Cpf *
+            <form:input id="cpf" placeholder="000.000.000-00"  type="text" name="cpf" data-error="" path="cpf" minlength="14" maxlength="14" /></br></br>
+             <span class="error" aria-live="polite"></span>
+             </label>
+			
+			<label for="end">Endereço *</label>
+            <form:input id="end" type="text" placeholder="Rua do usuario, 000. apt:000"  name="end" data-error="" path="endereco" maxlength="50" /></br></br>
+             <div class=""></div>
+			
+			<label for="data">Data de Nascimento *</label>
+            <form:input id="data" type="text" placeholder="dd-mm-aaaa" name="data" data-error="" path="dataNasc" minlength="10" maxlength="10" /></br></br>
+             <div class=""></div>
+			
+			
+			<i class="material-icons prefix"></i>
+          <label for="tel1">Telefone 1:</label>
+          
+          <form:input id="tel1"  placeholder="(00) 00000-0000" type="text" class="validate" path="telefone1" minlength="11" maxlength="14" /></br></br>
+			
+			<i class="material-icons prefix"></i>
+          <label for="tel2">Telefone 2:</label>
+			 <form:input id="tel2" placeholder="(00) 00000-0000" type="text" class="validate" path="telefone2" minlength="11" maxlength="14"/></br></br>
+			
+			<i class="material-icons prefix"></i>
+          <label for="tel3">Telefone 3:</label>
+			 <form:input id="tel3"  placeholder="(00) 00000-0000" type="text" class="validate" path="telefone3" minlength="11" maxlength="14"/></br></br>
+			
+			
+			<label for="password">Senha *</label>
+            <form:input id="password" type="password" name="password" data-error=".errorTxt3" path="senha" /></br></br>
+            <div class="errorTxt3"></div>
+			
+			<label for="cpassword">Confirm Password *</label>
+           <form:input id="cpassword" type="password" name="cpassword" data-error=".errorTxt4" path="" /></br></br>
+            <div class="errorTxt4"></div>
+
 			<td><form:button>Atualizar</form:button></td>
 		</form:form>
 		<pre></pre>

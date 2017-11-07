@@ -48,8 +48,7 @@
 		<br />
 		<br />
 		<div>
-			<button onclick="window.location.href='/Petshop/cadastrarPet/'">Cadastrar
-				Animal</button>
+			<button onclick="window.location.href='/Petshop/cadastrarPet/'">Cadastrar				Animal</button>
 		</div>
 		<div>
 			<button onclick="window.location.href='/Petshop'">Voltar</button>

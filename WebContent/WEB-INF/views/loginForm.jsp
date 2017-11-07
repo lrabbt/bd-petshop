@@ -36,7 +36,7 @@ pageEncoding="ISO-8859-1"%>
 			<form:button>Logar</form:button>
 		</form:form>
 		<pre></pre>
-		<button  onclick="window.location.href='/Petshop/cadastrar/">Cadastrar</button>
+		<button  onclick="window.location.href='/Petshop/cadastrar/cadastraCliente/">Cadastrar</button>
 		<pre></pre>
 	</center>
 
