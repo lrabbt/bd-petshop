@@ -29,7 +29,7 @@ public class VisualizarMeusPetsController {
 		return (Cliente) httpSession.getAttribute("clientLogado");
 	}
 
-	@RequestMapping("/")
+	@RequestMapping("")
 	public ModelAndView loadMyPets(HttpSession session)
 	{
 		List<Animal> pets;
@@ -102,6 +102,28 @@ public class VisualizarMeusPetsController {
 		} catch (SQLException e) {
 			modelAndView = new ModelAndView("redirect:/meuspets/" + nomeAntigoPet);
 			redirectAttributes.addFlashAttribute("message", "Erro no cadastro!");
+		}
+
+		return modelAndView;
+	}
+
+	@DeleteMapping("/{nomePet}")
+	public ModelAndView removePet(@PathVariable(value = "nomePet") String nomePet,
+								  @ModelAttribute("cliente") Cliente cliente,
+								  RedirectAttributes redirectAttributes,
+								  HttpSession httpSession){
+		ModelAndView modelAndView;
+
+		try {
+			Animal animal = PetDAO.consultaPetPorDonoENome(cliente, nomePet);
+			PetDAO.deleta(animal);
+			Sexo sexo = animal.getSexo();
+
+			modelAndView = new ModelAndView("redirect:/meuspets/");
+			redirectAttributes.addFlashAttribute("message", nomePet + " desregistrad" + (sexo == Sexo.M ? "o" : "a") + " com sucesso!");
+		} catch (SQLException e) {
+			modelAndView = new ModelAndView("redirect:/meuspets/" + nomePet);
+			redirectAttributes.addFlashAttribute("message", "Erro ao excluir Pet!");
 		}
 
 		return modelAndView;

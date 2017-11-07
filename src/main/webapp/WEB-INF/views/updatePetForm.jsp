@@ -4,6 +4,11 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<style type="text/css">
+		.remove-button {
+			color: red;
+		}
+	</style>
 	<title>Cadastro Animal</title>
 </head>
 <body>
@@ -33,6 +38,10 @@
 		<p><form:button>Atualizar</form:button></p>
 		</form:form>
 		<pre></pre>
+		<form:form action="/meuspets/${nomeAntigoAnimal}" method="delete" modelAttribute="animal">
+			<form:button class="remove-button">Desregistrar</form:button>
+		</form:form>
+		<hr/>
 		<button onclick="window.location.href='/meuspets/'">Voltar</button><br/>
 	</center>
 </body>

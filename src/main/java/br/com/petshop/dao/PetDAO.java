@@ -67,6 +67,20 @@ public class PetDAO {
 		preparedStatement.close();
 	}
 
+	public static void deleta(Animal animal) throws SQLException {
+		Connection connection = ConnectionFactory.getConexaoMySQL();
+
+		String sql = "DELETE FROM animal WHERE pessoa_cpf = ? AND nome = ?";
+
+		PreparedStatement preparedStatement = connection.prepareStatement(sql);
+		preparedStatement.setString(1, animal.getDono().getCpf());
+		preparedStatement.setString(2, animal.getNome());
+
+		preparedStatement.executeUpdate();
+
+		preparedStatement.close();
+	}
+
 	public static List<Animal> consultaPetsPorDono(Cliente cliente) throws SQLException {
 		Connection con = ConnectionFactory.getConexaoMySQL();
 
