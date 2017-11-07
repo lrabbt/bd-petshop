@@ -18,8 +18,7 @@ public class VisualizarMeuPerfilController {
 	@ModelAttribute("cliente")
 	public Cliente setUpMinhaContaForm(HttpSession session) 
 	{
-		Cliente cliente = (Cliente) session.getAttribute("clientLogado");
-		return cliente;
+		return (Cliente) session.getAttribute("clientLogado");
 	}
 	
 	

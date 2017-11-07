@@ -13,35 +13,43 @@ import br.com.petshop.model.enums.Sexo;
 import br.com.petshop.model.pessoa.Cliente;
 
 public class PetDAO {
-	public List<Animal> consultaPetsPorDono(Cliente cliente) throws SQLException {
-		Connection con = new ConnectionFactory().getConexaoMySQL();
+	public static List<Animal> consultaPetsPorDono(Cliente cliente) throws SQLException {
+		Connection con = ConnectionFactory.getConexaoMySQL();
 
 		// cria um preparedStatement
-		String sql = "SELECT * FROM animal WHERE cpf = ?";
+		String sql = "SELECT * FROM animal WHERE pessoa_cpf = ?";
 
 		PreparedStatement stmt = con.prepareStatement(sql);
-		
 		stmt.setString(1, cliente.getCpf());
+
 		ResultSet rs = stmt.executeQuery();
-		ArrayList<Animal> pets = null;
-		
+
+		List<Animal> pets = new ArrayList<>();
+
 		while(rs.next()) {
-			Especie especie = new Especie(rs.getString("especie"));
-			Sexo sexo = null;
-			if (rs.getString("sexo").equals("M")) {
-				 sexo = sexo.M;
-			}
-			else {
-				sexo = sexo.F;
-			}
-			Animal pet = new Animal(rs.getString("nome"),
+//			Retorna especie
+			int especie_id = rs.getInt("especie_id");
+			Especie especie = EspecieDAO.consultaEspeciePorId(especie_id);
+
+//			Escolhe sexo
+			Sexo sexo = Sexo.qualSexo(rs.getString("sexo"));
+
+//			Cria instancia de animal
+			Animal pet = new Animal(
+					rs.getString("nome"),
 					especie,
 					rs.getString("raca"),
 					sexo,
 					rs.getInt("idade"),
+					rs.getString("maturidade"),
 					cliente
 					);
+
+			pets.add(pet);
 		}
+
+		rs.close();
+		stmt.close();
 		return pets;
 	}
 }

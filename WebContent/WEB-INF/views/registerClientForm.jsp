@@ -1,19 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Cadastro</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Cadastro</title>
 </head>
 <body>
 	<center>
 		<h1>Cadastro</h1>
 		<hr />
+<<<<<<< HEAD
 		</br></br>
 		<form:form action="/Petshop/cadastrar/cadastraCliente" class="formValidate" id="formValidate" method="post"  novalidate="novalidate" modelAttribute="cliente">
+<br/><br/>
+
+>>>>>>> branch 'desenvolvimento' of https://github.com/lrabbt/bd-petshop.git
 			<div>${message}</div>
+<<<<<<< HEAD
 			
 			<label for="uname">Nome*</label>
 			<form:input id="uname" name="uname" type="text" data-error=".errorTxt1" path="nome"/></br></br>
@@ -60,14 +64,15 @@
             <div class="errorTxt4"></div>
 			
 			
-			
-			<td><form:button onclick="window.location.href='/Petshop/login/'">Cadastrar</form:button></td>
+			<td><form:button>Cadastrar</form:button></td>
+>>>>>>> branch 'desenvolvimento' of https://github.com/lrabbt/bd-petshop.git
 		</form:form>
 		
 		
 		<pre></pre>
-		<button  onclick="window.location.href='/Petshop/login/'">Voltar</button></br>
+		<button  onclick="window.location.href='/Petshop/login/'">Voltar</button><br/>
 	</center>
+<<<<<<< HEAD
 	
 	<script type="text/javascript"> 	
      $("#formValidate").validate({
@@ -134,4 +139,7 @@
         }
      });
  </script>
+=======
+</body>
+>>>>>>> branch 'desenvolvimento' of https://github.com/lrabbt/bd-petshop.git
 </html>

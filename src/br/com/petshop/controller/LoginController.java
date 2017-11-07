@@ -35,8 +35,7 @@ public class LoginController {
 		modelAndView.getModelMap().addAttribute("message", "Email ou senha incorretos!");
 		
 		try {
-			ClienteDAO dao = new ClienteDAO();
-			this.cliente = dao.autentica(cliente.getEmail(), cliente.getSenha());
+			this.cliente = ClienteDAO.autentica(cliente.getEmail(), cliente.getSenha());
 			
 			if(this.cliente != null)	{
 				//adiciona na sessao

@@ -27,12 +27,10 @@ public class CadastroController {
 	public ModelAndView verifyClient(@ModelAttribute("cliente") Cliente cliente) throws SQLException
 	{
 		ModelAndView modelAndView;
-		System.out.println(cliente.getCpf());
 		
 		ClienteDAO daoC = new ClienteDAO();
 		try {
 			daoC.insere(cliente);
-			System.out.println(cliente.getCpf());
 			modelAndView = new ModelAndView("loginForm");
 			modelAndView.getModelMap().addAttribute("message", "Cadastro efetuado com sucesso! Digite suas credenciais para logar!");
 		}
