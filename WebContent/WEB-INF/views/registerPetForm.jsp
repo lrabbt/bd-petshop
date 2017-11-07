@@ -20,7 +20,11 @@
 					<form:options items="${especies}" itemValue="nome" itemLabel="nome"/>
 				</form:select>
 			</p>
+<<<<<<< HEAD
 			<p>Raça:<form:input path="raca" /></p>
+=======
+			<p>RaÃ§a:<form:input path="raca" /></p>
+>>>>>>> refs/remotes/origin/desenvolvimento
 			<p>Sexo:
 				<form:select path="sexo">
 				    <form:option value="NONE" label="--- Escolha ---" />
