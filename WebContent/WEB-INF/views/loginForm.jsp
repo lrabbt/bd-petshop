@@ -28,7 +28,7 @@ pageEncoding="ISO-8859-1"%>
 			<div>${message}</div>
 			
 			<label for="cemail">E-mail</label>
-			<form:input type="email" id="cemail" name="cemail" data-error=".errorTxt2" path="email" />
+			<form:input type="email" placeholder="usuario@email.com" id="cemail" name="cemail" data-error=".errorTxt2" path="email" />
 			<label for="password">Senha *</label>
 			<form:input id="password" type="password" name="password" data-error=".errorTxt3" path="senha" />
 			

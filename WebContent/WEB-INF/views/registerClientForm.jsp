@@ -5,51 +5,54 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Cadastro</title>
+	
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	
 </head>
 <body>
 	<center>
 		<h1>Cadastro</h1>
 		<hr />
 	</br></br>
-		<form:form action="/Petshop/cadastrar/cadastraCliente" class="formValidate" id="formValidate" method="post"  novalidate="novalidate" modelAttribute="cliente">
+		<form:form action="/Petshop/cadastrar/cadastraCliente" name="meuForm" class="formValidate" id="formValidate" method="post"  novalidate="novalidate" modelAttribute="cliente">
 <br/><br/>
 
 			<div>${message}</div>
 
 			<label for="uname">Nome*</label>
-			<form:input id="uname" name="uname" type="text" data-error=".errorTxt1" path="nome"/></br></br>
+			<form:input id="uname" placeholder="Nome" name="uname" type="text" data-error=".errorTxt1" path="nome" maxlength="50" /></br></br>
 			<div class="errorTxt1"></div>
 			
 			<label for="cemail">E-Mail *</label>
-            <form:input id="cemail" type="email" name="cemail" data-error=".errorTxt2" path="email"/></br></br>
+            <form:input id="cemail" placeholder="usuario@email.com" type="text" name="cemail" data-error=".errorTxt2" path="email" maxlength="50"/></br></br>
              <div class="errorTxt2"></div>
 			
 			
 			<label for="cpf">Cpf *</label>
-            <form:input id="cpf" type="cpf" name="cpf" data-error="" path="cpf" /></br></br>
+            <form:input id="cpf" placeholder="000.000.000-00"  type="text" name="cpf" data-error="" path="cpf" maxlength="14" /></br></br>
              <div class=""></div>
 			
 			<label for="end">Endereço *</label>
-            <form:input id="end" type="end" name="end" data-error="" path="endereco" /></br></br>
+            <form:input id="end" type="text" placeholder="Rua do usuario, 000. apt:000"  name="end" data-error="" path="endereco" maxlength="50" /></br></br>
              <div class=""></div>
 			
 			<label for="data">Data de Nascimento *</label>
-            <form:input id="data" type="data" name="data" data-error="" path="dataNasc" /></br></br>
+            <form:input id="data" type="text" placeholder="dd-mm-aaaa" name="data" data-error="" path="dataNasc" maxlength="10" /></br></br>
              <div class=""></div>
 			
 			
 			<i class="material-icons prefix"></i>
           <label for="tel1">Telefone 1:</label>
           
-          <form:input id="tel1" type="tel" class="validate" path="telefone1" /></br></br>
+          <form:input id="tel1"  placeholder="(00) 00000-0000" type="text" class="validate" path="telefone1" maxlength="14" /></br></br>
 			
 			<i class="material-icons prefix"></i>
           <label for="tel2">Telefone 2:</label>
-			 <form:input id="tel2" type="tel" class="validate" path="telefone2" /></br></br>
+			 <form:input id="tel2" placeholder="(00) 00000-0000" type="text" class="validate" path="telefone2" maxlength="14"/></br></br>
 			
 			<i class="material-icons prefix"></i>
           <label for="tel3">Telefone 3:</label>
-			 <form:input id="tel3" type="tel" class="validate" path="telefone3" /></br></br>
+			 <form:input id="tel3"  placeholder="(00) 00000-0000" type="text" class="validate" path="telefone3" maxlength="14"/></br></br>
 			
 			
 			<label for="password">Senha *</label>
@@ -61,7 +64,7 @@
             <div class="errorTxt4"></div>
 			
 			
-			<td><form:button>Cadastrar</form:button></td>
+			<td><form:button id="contato" name="cadastro" value="cadastro">Cadastrar</form:button></td>
 
 		</form:form>
 		
@@ -93,27 +96,27 @@
 			},
 			cpf: {
                 required: true,
-                maxlength: 11
+                
             },
             end: {
                 required: true,
-                minlength: 15
+                
             },
             data: {
                 required: true,
-                maxlength: 10
+               
             },
             tel1: {
                 required: true,
-                maxlength: 11
+                
             },
             tel2: {
                 required: false,
-                maxlength: 11
+                
             },
             tel3: {
                 required: false,
-                maxlength: 11
+                
             },
             
         },
@@ -126,7 +129,7 @@
             password:{
             	required: "Você precisa de uma senha",
             	minlength: 5
-            } 
+            }, 
             uname: {
                 required: true,
                 minlength: 5
@@ -140,27 +143,27 @@
 			},
 			cpf: {
                 required: "Você precisa cadastrar seu CPF",
-                maxlength: 11
+                
             },
             end: {
                 required: "Preencha um endereço",
-                minlength: 15
+               
             },
             data: {
                 required: "Informe sua data de nascimento",
-                maxlength: 10
+               
             },
             tel1: {
                 required: "Você precisa de pelo menos um telefone",
-                maxlength: 11
+               
             },
             tel2: {
                 required: false,
-                maxlength: 11
+                
             },
             tel3: {
                 required: false,
-                maxlength: 11
+                
             },
             
         },
@@ -176,7 +179,29 @@
         }
      });
  </script>
+<script type="text/javascript">
 
+$(document).ready(function(){
+	
+	$("#contato").click(function(){
+		
+		if ($("#unome").val()==''){
+			$("#mensagem").html("Campo obrigatório");
+			$("#unome").focus(); // foco no campo
+			}else{
+				$("#meuForm").submit();
+		}
+		if ($("#cmail").val()==''){
+			$("#mensagem").html("Campo obrigatório");
+			$("#cmail").focus(); // foco no campo
+			}else{
+				$("#meuForm").submit();
+		}
+	
+	});
+	
+});
+</script>
 </body>
 
 </html>
