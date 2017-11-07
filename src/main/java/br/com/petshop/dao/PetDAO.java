@@ -16,14 +16,7 @@ public class PetDAO {
 	public static void insere(Animal animal) throws SQLException {
 		Connection connection = ConnectionFactory.getConexaoMySQL();
 
-		String especieSql = "SELECT * FROM especie WHERE id = ?";
-
-		PreparedStatement especiePreparedStatement = connection.prepareStatement(especieSql);
-		especiePreparedStatement.setString(1, animal.getNome());
-
-		ResultSet especieResultSet = especiePreparedStatement.executeQuery();
-
-		int especieId = especieResultSet.getInt("id");
+		int especieId = EspecieDAO.consultaIdEspecie(animal.getEspecie());
 
 		String sql = "INSERT INTO `animal` (`pessoa_cpf`, `nome`, `especie_id`, `sexo`, `idade`, `maturidade`, `raca`, `saude`) VALUES "
 				+ "(?, ?, ?, ?, ?, ?, ?, ?)";
@@ -37,6 +30,10 @@ public class PetDAO {
 		preparedStatement.setString(6, animal.getMaturidade());
 		preparedStatement.setString(7, animal.getRaca());
 		preparedStatement.setString(8, animal.getSaude());
+
+		preparedStatement.executeUpdate();
+
+		preparedStatement.close();
 	}
 
 	public static List<Animal> consultaPetsPorDono(Cliente cliente) throws SQLException {

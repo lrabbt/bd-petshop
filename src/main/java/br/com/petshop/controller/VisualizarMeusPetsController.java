@@ -16,12 +16,13 @@ import br.com.petshop.dao.ClienteDAO;
 import br.com.petshop.dao.PetDAO;
 import br.com.petshop.model.animal.Animal;
 import br.com.petshop.model.pessoa.Cliente;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("meuspets")
 public class VisualizarMeusPetsController {
 	@RequestMapping("/")
-	public ModelAndView loadMyPets(HttpSession session) 
+	public ModelAndView loadMyPets(HttpSession session)
 	{
 		List<Animal> pets;
 		ModelAndView modelAndView = new ModelAndView("meuspets");
@@ -30,11 +31,12 @@ public class VisualizarMeusPetsController {
 		try {
 			pets = PetDAO.consultaPetsPorDono(cliente);
 
-			if(pets == null){
-				modelAndView.getModelMap().addAttribute("message", "Voce nao possui pets cadastrados :/");
+			if(pets.size() == 0){
+				modelAndView.addObject("temPets", false);
+				modelAndView.addObject("messagePets", "Voce nao possui pets cadastrados :/");
 			} else {
+				modelAndView.addObject("temPets", true);
 				modelAndView.addObject("pets", pets);
-				modelAndView.getModelMap().addAttribute("message", "Dados de Cadastro atualizados com sucesso!");
 			}
 		}
 		catch(Exception e){

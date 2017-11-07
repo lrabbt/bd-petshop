@@ -31,6 +31,48 @@ public class EspecieDAO {
         return especie;
     }
 
+    public static Especie consultaEspeciePorNome(String nome) throws SQLException {
+        Connection con = ConnectionFactory.getConexaoMySQL();
+
+        String sql = "SELECT * FROM especie WHERE nome = ?";
+
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, nome);
+
+        ResultSet resultSet = stmt.executeQuery();
+
+        Especie especie = null;
+
+        while (resultSet.next()){
+            especie = new Especie(resultSet.getString("nome"));
+        }
+
+        resultSet.close();
+        stmt.close();
+        return especie;
+    }
+
+    public static int consultaIdEspecie(Especie especie) throws SQLException {
+        Connection connection = ConnectionFactory.getConexaoMySQL();
+
+        String sql = "SELECT * FROM especie WHERE nome = ?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, especie.getNome());
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        int especieId = -1;
+
+        resultSet.next();
+
+        especieId = resultSet.getInt("id");
+
+        resultSet.close();
+        preparedStatement.close();
+        return especieId;
+    }
+
     public static List<Especie> consultaEspecies() throws SQLException {
         Connection connection = ConnectionFactory.getConexaoMySQL();
 
@@ -46,6 +88,8 @@ public class EspecieDAO {
             especies.add(new Especie(resultSet.getString("nome")));
         }
 
+        resultSet.close();
+        preparedStatement.close();
         return especies;
     }
 }

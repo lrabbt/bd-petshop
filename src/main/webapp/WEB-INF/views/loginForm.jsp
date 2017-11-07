@@ -19,7 +19,7 @@ pageEncoding="ISO-8859-1"%>
 			<form:button>Logar</form:button>
 		</form:form>
 		<pre></pre>
-		<button  onclick="window.location.href='/cadastrar/'">Cadastrar</button>
+		<button  onclick="window.location.href='/cadastrarCliente/'">Cadastrar</button>
 		<pre></pre>
 	</center>
 </body>

@@ -12,7 +12,7 @@ import br.com.petshop.dao.ClienteDAO;
 import br.com.petshop.model.pessoa.Cliente;
 
 @Controller
-@RequestMapping("cadastrar")
+@RequestMapping("cadastrarCliente")
 public class CadastroController {
 
 	@ModelAttribute("cliente")

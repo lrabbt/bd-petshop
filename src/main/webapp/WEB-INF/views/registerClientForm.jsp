@@ -11,7 +11,7 @@
 		<h1>Cadastro</h1>
 		<hr />
 		<br/><br/>
-		<form:form action="/cadastrar/cadastraCliente" method="post" modelAttribute="cliente">
+		<form:form action="/cadastrarCliente/cadastraCliente" method="post" modelAttribute="cliente">
 			<div>${message}</div>
 			Nome:<form:input path="nome"/><br/><br/>
 			Email:<form:input path="email" /><br/><br/>

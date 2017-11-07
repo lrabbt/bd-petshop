@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -23,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("cadastroPet")
+@RequestMapping("cadastrarPet")
 public class CadastroAnimalController {
     @ModelAttribute("animal")
     public Animal getNewAnimal(){
@@ -45,9 +46,11 @@ public class CadastroAnimalController {
         return "registerPetForm";
     }
 
-    @PostMapping("/")
+    @PostMapping("/cadastra")
     public ModelAndView registraNovoAnimal(@ModelAttribute("animal") @Valid Animal animal,
-                                           BindingResult animalBinding, HttpSession session){
+                                           BindingResult animalBinding,
+                                           RedirectAttributes redirectAttributes,
+                                           HttpSession session){
         ModelAndView modelAndView;
 
         animal.setDono((Cliente) session.getAttribute("clientLogado"));
@@ -55,11 +58,11 @@ public class CadastroAnimalController {
         try {
             PetDAO.insere(animal);
 
-            modelAndView = new ModelAndView("meuspets");
-            modelAndView.getModelMap().addAttribute("message", "Cadastro efetuado com Sucesso!");
+            modelAndView = new ModelAndView("redirect:/meuspets/");
+            redirectAttributes.addFlashAttribute("message", "Cadastro efetuado com Sucesso!");
         } catch (SQLException e) {
             modelAndView = new ModelAndView("registerPetForm");
-            modelAndView.getModelMap().addAttribute("message", "Erro ao cadastrar!");
+            modelAndView.addObject("message", "Erro ao cadastrar!");
         }
 
         return modelAndView;

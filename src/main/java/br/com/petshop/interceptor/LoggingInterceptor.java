@@ -10,7 +10,7 @@ public class LoggingInterceptor implements HandlerInterceptor  {
 		throws Exception {
 		 String uri = request.getRequestURI();
 	      if(uri.contains("login") || 
-	              uri.contains("cadastrar"))
+	              uri.contains("cadastrarCliente"))
 	      			{
 	        return true;
 	      }
