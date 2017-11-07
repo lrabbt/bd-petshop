@@ -11,7 +11,7 @@ pageEncoding="ISO-8859-1"%>
 </head>
 <body>
 	<center>
-		<h1>${message}</h1>
+		
 		<h1>Pets</h1>
 		<table border="1" cellpadding="5">
 			<caption>
@@ -37,6 +37,7 @@ pageEncoding="ISO-8859-1"%>
 					</tr>
 				</c:forEach>
 			</tr>
+			<h1>${message}</h1>
 		</table>
 	</center>
 </body>

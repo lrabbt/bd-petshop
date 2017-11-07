@@ -30,7 +30,7 @@ public class VisualizarMeusPetsController {
 		try {
 			pets = PetDAO.consultaPetsPorDono(cliente);
 
-			if(pets == null){
+			if(pets.size()==0){
 				modelAndView.getModelMap().addAttribute("message", "Voce nao possui pets cadastrados :/");
 			} else {
 				modelAndView.addObject("pets", pets);
