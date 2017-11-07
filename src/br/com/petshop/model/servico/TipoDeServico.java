@@ -3,7 +3,10 @@ package br.com.petshop.model.servico;
 public class TipoDeServico {
     private String nome;
     private long preco;
-
+    
+    public TipoDeServico() {
+    	
+    }
     public TipoDeServico(String nome, long preco) {
         this.nome = nome;
         this.preco = preco;

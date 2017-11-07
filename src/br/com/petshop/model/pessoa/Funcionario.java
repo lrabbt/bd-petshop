@@ -13,7 +13,10 @@ public class Funcionario extends Pessoa {
     public Funcionario(String nome) {
     	this.nome = nome;
     }
-
+    
+    public Funcionario() {
+    	
+    }
     public Funcionario(String nome, String email, Date dataNasc, String cpf, String senha, String endereco, String telefone1, String telefone2, String telefone3, int registroFuncionario) {
         super(nome, email, dataNasc, cpf, senha, endereco, telefone1, telefone2, telefone3);
         this.registroFuncionario = registroFuncionario;
