@@ -52,5 +52,26 @@ public class ServicoDAO {
 			stmt.close();
 			return id_serv;
 	}
-	
+
+	public static TipoDeServico consultaServicoPorId(int id) throws SQLException{
+		Connection con = ConnectionFactory.getConexaoMySQL();
+
+		// cria um preparedStatement
+		String sql = "SELECT * FROM tipo_servico where id = ?";
+
+		PreparedStatement stmt = con.prepareStatement(sql);
+		stmt.setInt(1, id);
+
+		ResultSet rs = stmt.executeQuery();
+
+		TipoDeServico tipoDeServico = null;
+
+		if(rs.next()){
+			tipoDeServico = new TipoDeServico(rs.getString("nome"), rs.getLong("preco"));
+		}
+
+		rs.close();
+		stmt.close();
+		return tipoDeServico;
+	}
 }
