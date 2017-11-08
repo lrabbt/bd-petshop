@@ -21,34 +21,19 @@
 
 		</br> </br> </br> </br> </br>
 		<h2>${message}</h2>
-		<form:form action="/agendaservico/" modelAttribute="marcarServ" method="post">
-			Pet: 
-			<form:select path="animalAtendido.nome">
-				<form:option value="-" label="--Select pet" />
-				<form:options items="${petsMap}" />
-			</form:select> 
-			</br> </br> 
-			Servico: 
-			<form:select path="tipoDeServico.nome">
-				<form:option value="-" label="--Select servico" />
-				<form:options items="${servsMap}" />
-			</form:select> 
-			</br> </br> 
-			Horario: 
-			<form:select path="horarioDeTrabalho.horarioCompleto.dataCompleta">
-				<form:option value="-" label="--Select horario" />
-				<form:options items="${horasMap}" />
-			</form:select> 
-			</br> </br> 
-			Funcionario: 
-			<form:select path="horarioDeTrabalho.funcionario.nome">
-				<form:option value="-" label="--Select funcionario" />
-				<form:options items="${funcsMap}" />
-			</form:select></br></br>
-			<tr>
-				<td><input type="submit" value="Submit" /></td>
-			</tr>
-		</form:form>
+		<c:if test="${agendaOk}">
+			<form:form action="/" modelAttribute="horario" method="post">
+				Horario: 
+				<form:select path="id">
+					<form:option value="0" label="--Select horario--" />
+					<form:options items="${horarios}" itemValue="id" itemLabel="dataCompleta"/>
+				</form:select> 
+				<br/><br/>
+				<tr>
+					<td><input type="submit" value="Submit" /></td>
+				</tr>
+			</form:form>
+		</c:if>
 	</center>
 </body>
 </html>

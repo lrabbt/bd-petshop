@@ -22,14 +22,15 @@ public class ServicoDAO {
 	ResultSet rs = stmt.executeQuery();
 	List<TipoDeServico> listaServico = new ArrayList<TipoDeServico>();
 	
-		while(rs.next()){
-			
-			TipoDeServico servico = new TipoDeServico(rs.getString("nome"),rs.getLong("preco"));
-			listaServico.add(servico);
-		}
-		rs.close();
-		stmt.close();
-		return listaServico;
+	while(rs.next()){
+
+		TipoDeServico servico = new TipoDeServico(rs.getString("nome"),rs.getLong("preco"));
+		listaServico.add(servico);
+	}
+
+	rs.close();
+	stmt.close();
+	return listaServico;
 	}
 	
 	public static int consultaServicoPorNome(String nome) throws SQLException{
