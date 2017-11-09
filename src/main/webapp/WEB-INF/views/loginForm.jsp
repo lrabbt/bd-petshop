@@ -6,72 +6,77 @@ pageEncoding="ISO-8859-1"%>
 <head>
 
 
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<title>Login</title>
+	<title>Login</title>
 
 </head>
 <body>
 	<div class="login">
-	
-	<center>
-		<h1>Bem vindo ao Sistema de Agendamento - PetShopCC</h1>
-		<hr />
+
+		<center>
+			<h1>Bem vindo ao Sistema de Agendamento - PetShopCC</h1>
+			<hr />
+
+		</br></br>
+
 		<br/><br/>
 		<div>${message}</div>
-		<form:form action="/login/authClient" method="post" modelAttribute="cliente">
+		<form:form action="/Petshop/login/authClient" method="post" modelAttribute="cliente">
 
-			<div>${message}</div>
 			
 			<label for="cemail">E-mail</label>
 			<form:input type="email" id="cemail" name="cemail" data-error=".errorTxt2" path="email" />
 			<label for="password">Senha *</label>
 			<form:input id="password" type="password" name="password" data-error=".errorTxt3" path="senha" />
 			
+			
+			
+			
 			<form:button>Logar</form:button>
 		</form:form>
 		<pre></pre>
-		<button  onclick="window.location.href='/cadastrarCliente/'">Cadastrar</button>
+		<button  onclick="window.location.href='/Petshop/cadastrar/cadastraCliente/">Cadastrar</button>
 		<pre></pre>
 	</center>
 
-	</div>
+</div>
 </body>
 <script type="text/javascript"> 	
-     $("#formValidate").validate({
-        rules: {
-            
-            cemail: {
-                required: true,
-                email:true
-            },
-            password: {
+	$("#formValidate").validate({
+		rules: {
+			
+			cemail: {
+				required: true,
+				email:true
+			},
+			password: {
 				required: true,
 				minlength: 5
 			},
 			
 			
-        },
+		},
         //For custom messages
         messages: {
-            cemail:{
-                required: "Entre com um email v?lido",
-                minlength: 5
-            },
-            password:{
-            	required: "Voc? precisa de uma senha",
-            	minlength: 5
-            } 
+        	cemail:{
+        		required: "Entre com um email v?lido",
+        		minlength: 5
+        	},
+        	password:{
+        		required: "Voc? precisa de uma senha",
+        		minlength: 5
+        	} 
         },
         errorElement : 'div',
         errorPlacement: function(error, element) {
-          var placement = $(element).data('error');
-          if (placement) {
-            $(placement).append(error)
-          } else {
-            error.insertAfter(element);
-          }
+        	var placement = $(element).data('error');
+        	if (placement) {
+        		$(placement).append(error)
+        	} else {
+        		error.insertAfter(element);
+        	}
         }
-     });
+    });
 </script>
 </html>
