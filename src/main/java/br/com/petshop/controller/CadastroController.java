@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,11 +20,11 @@ public class CadastroController {
 	public Cliente setUpRegisterForm() {
 		return new Cliente();
 	}
-	@GetMapping("/")
+	@GetMapping("")
 	public String registration() {
 		return "registerClientForm";
 	}
-	@RequestMapping("/cadastraCliente") 
+	@PostMapping("/cadastraCliente")
 	public ModelAndView verifyClient(@ModelAttribute("cliente") Cliente cliente) throws SQLException
 	{
 		ModelAndView modelAndView;
@@ -31,7 +32,7 @@ public class CadastroController {
 		try {
 			ClienteDAO.insere(cliente);
 			modelAndView = new ModelAndView("loginForm");
-			modelAndView.getModelMap().addAttribute("message", "Cadastro efetuado com sucesso! Digite suas credenciais para logar!");
+			modelAndView.addObject("message", "Cadastro efetuado com sucesso! Digite suas credenciais para logar!");
 		}
 		catch(Exception e){
 			modelAndView = new ModelAndView("registerClientForm");

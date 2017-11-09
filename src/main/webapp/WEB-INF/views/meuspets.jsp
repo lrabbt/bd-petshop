@@ -15,6 +15,7 @@
 
 		<h1>Pets</h1>
 		<h2>${messagePets}</h2>
+		<h3>${message}</h3>
 		<c:if test="${temPets}">
 			<table border="1" cellpadding="5">
 				<caption>

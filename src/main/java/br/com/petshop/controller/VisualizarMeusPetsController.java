@@ -26,7 +26,8 @@ public class VisualizarMeusPetsController {
 	}
 
 	@RequestMapping("")
-	public ModelAndView loadMyPets(HttpSession session)
+	public ModelAndView loadMyPets(@ModelAttribute("message") String message,
+								   HttpSession session)
 	{
 		List<Animal> pets;
 		ModelAndView modelAndView = new ModelAndView("meuspets");
@@ -40,6 +41,7 @@ public class VisualizarMeusPetsController {
 				modelAndView.addObject("messagePets", "Voce nao possui pets cadastrados :/");
 			} else {
 				modelAndView.addObject("temPets", true);
+				modelAndView.addObject("message", message);
 				modelAndView.addObject("pets", pets);
 			}
 		}

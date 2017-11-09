@@ -45,15 +45,15 @@
 			<i class="material-icons prefix"></i>
           <label for="tel1">Telefone 1:</label>
           
-          <form:input id="tel1"  placeholder="(00) 00000-0000" type="text" class="validate" path="telefone1" minlength="11" maxlength="14" /></br></br>
+          <form:input id="tel1"  placeholder="(00) 00000-0000" type="text" class="validate" path="telefone1" minlength="10" maxlength="14" /></br></br>
 			
 			<i class="material-icons prefix"></i>
           <label for="tel2">Telefone 2:</label>
-			 <form:input id="tel2" placeholder="(00) 00000-0000" type="text" class="validate" path="telefone2" minlength="11" maxlength="14"/></br></br>
+			 <form:input id="tel2" placeholder="(00) 00000-0000" type="text" class="validate" path="telefone2" minlength="10" maxlength="14"/></br></br>
 			
 			<i class="material-icons prefix"></i>
           <label for="tel3">Telefone 3:</label>
-			 <form:input id="tel3"  placeholder="(00) 00000-0000" type="text" class="validate" path="telefone3" minlength="11" maxlength="14"/></br></br>
+			 <form:input id="tel3"  placeholder="(00) 00000-0000" type="text" class="validate" path="telefone3" minlength="10" maxlength="14"/></br></br>
 			
 			
 			<label for="password">Senha *</label>

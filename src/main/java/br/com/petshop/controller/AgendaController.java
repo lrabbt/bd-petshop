@@ -35,7 +35,8 @@ public class AgendaController {
 	}
 
 	@GetMapping("")
-	public ModelAndView panelHome(HttpSession session) {
+	public ModelAndView panelHome(@ModelAttribute("message") String message,
+								  HttpSession session) {
 		ModelAndView modelAndView;
 		Cliente cliente = (Cliente) session.getAttribute("clientLogado");
 
@@ -46,6 +47,7 @@ public class AgendaController {
 			modelAndView.addObject("cliente", cliente);
 			modelAndView.addObject("horarios", horarios);
 
+			modelAndView.addObject("message", message);
 			modelAndView.addObject("agendaOk", true);
 		} catch (SQLException e) {
 			modelAndView = new ModelAndView("home");
@@ -89,13 +91,14 @@ public class AgendaController {
 				redirectAttributes.addFlashAttribute("message", "Sem funcionarios disponiveis no horario :(");
 			} else {
 				modelAndView = new ModelAndView("homeAgenda");
-				modelAndView.addObject("cliente", cliente);
+
 				modelAndView.addObject("petsMap", pets);
 				modelAndView.addObject("servsMap", servicos);
 				modelAndView.addObject("funcionarios", funcionarios);
 				modelAndView.addObject("horarioId", horario.getId());
 			}
 
+			modelAndView.addObject("cliente", cliente);
 			modelAndView.addObject("agendaOk", true);
 		} catch (SQLException e) {
 			modelAndView = new ModelAndView("home");

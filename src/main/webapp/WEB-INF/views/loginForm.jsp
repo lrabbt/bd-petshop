@@ -18,11 +18,9 @@ pageEncoding="ISO-8859-1"%>
 			<h1>Bem vindo ao Sistema de Agendamento - PetShopCC</h1>
 			<hr />
 
-		</br></br>
-
 		<br/><br/>
 		<div>${message}</div>
-		<form:form action="/Petshop/login/authClient" method="post" modelAttribute="cliente">
+		<form:form action="/login/authClient" method="post" modelAttribute="cliente">
 
 			
 			<label for="cemail">E-mail</label>
@@ -36,7 +34,7 @@ pageEncoding="ISO-8859-1"%>
 			<form:button>Logar</form:button>
 		</form:form>
 		<pre></pre>
-		<button  onclick="window.location.href='/Petshop/cadastrar/cadastraCliente/">Cadastrar</button>
+		<button  onclick="window.location.href='/cadastrarCliente/'">Cadastrar</button>
 		<pre></pre>
 	</center>
 

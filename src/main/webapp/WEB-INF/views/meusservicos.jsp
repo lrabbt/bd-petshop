@@ -13,8 +13,9 @@
 <body>
 	<center>
 
-		<h1>Pets</h1>
-		<h2>${messagePets}</h2>
+		<h1>Servicos</h1>
+		<h2>${messageServicos}</h2>
+		<h2>${message}</h2>
 		<c:if test="${temServicos}">
 			<table border="1" cellpadding="5">
 				<caption>
