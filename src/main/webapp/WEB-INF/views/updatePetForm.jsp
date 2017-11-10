@@ -26,7 +26,7 @@
 					<form:options items="${especies}" itemValue="nome" itemLabel="nome"/>
 				</form:select>
 			</p>
-			<p>RaÃ§a:<form:input path="raca" /></p>
+			<p>Raça:<form:input path="raca" /></p>
 			<p>Sexo:
 				<form:select path="sexo">
 				    <form:option value="NONE" label="--- Escolha ---" />

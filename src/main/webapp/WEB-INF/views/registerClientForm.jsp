@@ -33,7 +33,7 @@
              <span class="error" aria-live="polite"></span>
              </label>
 			
-			<label for="end">EndereÃ§o *</label>
+			<label for="end">Endereço *</label>
             <form:input id="end" type="text" placeholder="Rua do usuario, 000. apt:000"  name="end" data-error="" path="endereco" maxlength="50" /></br></br>
              <div class=""></div>
 			
