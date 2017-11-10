@@ -86,9 +86,10 @@ public class AgendaController {
 			List<TipoDeServico> servicos = ServicoDAO.consultaServicosOferecidos();
 
 			if(horariosDeTrabalho.size() == 0){
-				modelAndView = new ModelAndView("home");
+				modelAndView = new ModelAndView("redirect:/");
 
 				redirectAttributes.addFlashAttribute("message", "Sem funcionarios disponiveis no horario :(");
+				return modelAndView;
 			} else {
 				modelAndView = new ModelAndView("homeAgenda");
 
@@ -96,10 +97,11 @@ public class AgendaController {
 				modelAndView.addObject("servsMap", servicos);
 				modelAndView.addObject("funcionarios", funcionarios);
 				modelAndView.addObject("horarioId", horario.getId());
+
+				modelAndView.addObject("cliente", cliente);
+				modelAndView.addObject("agendaOk", true);
 			}
 
-			modelAndView.addObject("cliente", cliente);
-			modelAndView.addObject("agendaOk", true);
 		} catch (SQLException e) {
 			modelAndView = new ModelAndView("home");
 
